@@ -1,0 +1,147 @@
+##################################################################################################################
+HTML #############################################################################################################
+##################################################################################################################
+
+img is an inline element !!!
+
+------------------------------------------------------------------------------------------------------------------
+
+<div>
+    <span style="display: table-cell; vertical-align: middle">              // Center elements with table-cells
+        ...                                                                 // (Not Recommended)
+    </span>
+</div>
+
+------------------------------------------------------------------------------------------------------------------
+
+<li style="list-style-image: url("...");list-style-position:inside;">        // Use images as a list decoration
+    ...
+</li>
+
+------------------------------------------------------------------------------------------------------------------
+
+<p title="Specifies extra information about an element (displayed as a tool tip)"> ... </p>
+
+------------------------------------------------------------------------------------------------------------------
+
+<hr>                                                                        // Horizontal Line
+
+------------------------------------------------------------------------------------------------------------------
+
+<picture>                                                                   // Advanced img selection
+  <source media="(min-width: 650px)" srcset="img_pink_flowers.jpg">
+  <source media="(min-width: 465px)" srcset="img_white_flower.jpg">
+  <img src="img_orange_flowers.jpg" alt="Flowers" style="width:auto;">
+</picture>
+
+------------------------------------------------------------------------------------------------------------------
+
+Characer Entities:
+
+non-breaking space (&nbsp;)   The non-breaking hyphen (&#8209;)     
+< (&lt;)      > (&gt;)        ampersand (&amp;)       ® (&reg;)
+" (&quot;)    '(&apos;)       ¢ (&cent;) £ (&pound;)  ¥ (&yen;)    
+© (&copy;)  €(&euro;)
+------------------------------------------------------------------------------------------------------------------
+
+<fieldset> <legend>                                                         // Super cool form tags
+
+------------------------------------------------------------------------------------------------------------------
+HTML5 Semantic Elements:
+
+<article> <aside> <details> <figcaption> <figure> <footer> <header> <main> <mark> <nav> <section> <summary> <time>
+
+##################################################################################################################
+CSS ##############################################################################################################
+##################################################################################################################
+
+* {
+    ...                                                                     // Universal CSS selector
+}
+
+------------------------------------------------------------------------------------------------------------------
+
+.kutu {                                                                     // margin / padding / border :
+    margin: 1px 2px 3px 4px                                                 // top right bottom left
+    color: red !important;                                                  // Increase precedence over others
+}
+
+------------------------------------------------------------------------------------------------------------------
+
+:first-of-type
+
+------------------------------------------------------------------------------------------------------------------
+
+box-shadow: <x axis>px <y axis>px <blur>px <color>
+
+##################################################################################################################
+Javascript #######################################################################################################
+##################################################################################################################
+
+arr.push(...)                                                               // Add to the end
+arr.pop()                                                                   // Remove from the end
+arr.unshift(...)                                                            // Add to the beginning
+arr.shift(...)                                                              // Remove from the beginning
+arr.slice("begin","end (not included)")                                     // Returns a copy of specified array
+arr.reverse()
+
+------------------------------------------------------------------------------------------------------------------
+
+setTimeOut(func,x)                                                          // Wait x ms then run func
+setInterval(func,x)                                                         // Call func at every x ms
+
+------------------------------------------------------------------------------------------------------------------
+
+
+for (let key in object/array) {                                             // uses keys
+    console.log(i);                                                         // for arrays keys are index numbers
+    console.log(obje[i])                                                    // might run non-sequential !!!
+}                                                                           // (not recommended for arrays)
+
+for (let iterator of array) {                                               // uses iterators
+    console.log(i);                                                         // doesn't work on objects
+}
+
+------------------------------------------------------------------------------------------------------------------
+
+Note: To add completely new key-value pair to an existing object, just use as if it was there beforehand 
+      ( ex: obj.newKey=newValue )
+
+##################################################################################################################
+Things should be added to every project ##########################################################################
+##################################################################################################################
+
+* {
+    box-sizing: border-box;                                                 // Area expressions now includes 
+}                                                                           // border-widths and paddings
+
+.clear {
+    clear: both;
+}
+img {                                                                       // Prevents image overflow
+    max-width : 100%;
+    max-height: 100%;
+    display: block;                                                         // If floats wont be used
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">      // Sets viewport to device width
+
+
+##################################################################################################################
+Others ###########################################################################################################
+##################################################################################################################
+
+Axios - Promise based HTTP client for the browser and node.js
+
+https://github.com/axios/axios
+
+axios.get("https://jsonplaceholder.typicode.com/posts")
+    .then((response) => {
+        let data1 = response.data
+        data1.forEach((element, index) => {
+            console.log(element.title);      
+        })
+    })
+    .catch((e) => {
+        console.log(e);
+    })
