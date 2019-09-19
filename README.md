@@ -20,4 +20,4 @@ Sources:
 * Mustafa Akgül Özgür Yazılım Kampları (<https://kamp.linux.org.tr/>)
 * W3 Schools (<https://www.w3schools.com>)
 * OMDB (<https://www.omdbapi.com/>)
-* AXios (<https://github.com/axios/axios>)
+* Axios (<https://github.com/axios/axios>)
