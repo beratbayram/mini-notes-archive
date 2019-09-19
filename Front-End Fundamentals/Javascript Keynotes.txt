@@ -1,10 +1,10 @@
 JAVASCRIPT KEYNOTES
 
 <script type="text/javascript">  		// To prevent browsers which doesn't execute
-<!--						// javascript from displaying code as normal
+<!--						            // javascript from displaying code as normal
 	document.write("Hello World!");		// text, the HTML comment tag should be used
-//-->						// to "hide" the JavaScript
-</script>					// (It is also a part of the JS standard)
+//-->									// to "hide" the JavaScript
+</script>								// (It is also a part of the JS standard)
 
 [I] The two forward slashes at the end of comment line (//) is the JavaScript comment symbol.
 This prevents JavaScript from executing the --> tag.
@@ -12,6 +12,22 @@ This prevents JavaScript from executing the --> tag.
 -------------------------------------------------------------------------------------------------
 
 The value of a variable does not reset (or cleared) when you redeclare it.
+
+-------------------------------------------------------------------------------------------------
+
+setTimeOut(func,x)						// Wait x ms then run func
+setInterval(func,x)						// Call func at every x ms
+
+-------------------------------------------------------------------------------------------------
+
+for (let key in object/array) {         // uses keys
+    console.log(i);                     // for arrays keys are index numbers
+    console.log(obje[i])                // might run non-sequential !!!
+}                                       // (not recommended for arrays)
+
+for (let iterator of array) {           // uses iterators
+    console.log(i);                     // doesn't work on objects
+}
 
 -------------------------------------------------------------------------------------------------
 
@@ -28,13 +44,13 @@ document.location.href="http://www.w3schools.com/"; // Redirect to another page
 
 JS Global Functions
 
-* eval()					Executes a string as if it was script code
-* isFinite()					Determines if a value is a finite, legal number
-* isNaN()					Determines if a value is an illegal number
-* Number()					Converts an object's value to a number
-* parseFloat()					Parses a string and returns a float
-* parseInt()					Parses a string and returns an integer
-* String()					Converts an object's value to a string
+* eval()							Executes a string as if it was script code
+* isFinite()						Determines if a value is a finite, legal number
+* isNaN()							Determines if a value is an illegal number
+* Number()							Converts an object's value to a number
+* parseFloat()						Parses a string and returns a float
+* parseInt()						Parses a string and returns an integer
+* String()							Converts an object's value to a string
 
 -------------------------------------------------------------------------------------------------
 #################################################################################################
@@ -89,7 +105,7 @@ var numObj = new Number(num)
 
 * toExponential(x) 				Converts a number into an exponential notation
 * toFixed(x) 					Formats a number with x numbers of digits after
-						the decimal point
+								the decimal point
 * toPrecision(x) 				Formats a number to x length
 * toString() 					Converts a Number object to a string
 * valueOf() 					Returns the primitive value of a Number object
@@ -100,20 +116,20 @@ String Object
 
 * indexOf(x) 					Returns the position of the first found x
 * lastIndexOf(x) 				Returns the position of the last found x
-* match()					Searches for a regex then returns the matches
+* match()						Searches for a regex then returns the matches
 * replace(x)					match() it then replace them with x
-* search() 					match() it but instead return the position
+* search() 						match() it but instead return the position
 
-* slice()					Extracts a part of a string and returns that
-* split()					Splits a string into an array of substrings
+* slice()						Extracts a part of a string and returns that
+* split()						Splits a string into an array of substrings
 * substring()					Extracts the characters
-						(between two specified indices)
-* substr()					Extracts the characters
-						(beginning at a specified start	position, and 
-						through the specified number of character)
+								(between two specified indices)
+* substr()						Extracts the characters
+								(beginning at a specified start	position, and 
+								through the specified number of character)
 * toLowerCase()
 * toUpperCase()
-* valueOf()					Returns the primitive value
+* valueOf()						Returns the primitive value
 
 (regex: regular expression)
 
@@ -123,7 +139,7 @@ Date Object
 
 There are four ways of instantiating a date:
 	* new Date() 				// current date and time
-	* new Date(milliseconds) 		// milliseconds since 1970/01/01
+	* new Date(milliseconds) 	// milliseconds since 1970/01/01
 	* new Date(dateString)
 	* new Date(year, month, day, hours, minutes, seconds, milliseconds)
 
@@ -137,7 +153,7 @@ Array Object
 
 An array can be defined in three ways.
 1:
-	var myCars=new Array(); 		// regular array (add an optional integer
+	var myCars=new Array();		// regular array (add an optional integer
 	myCars[0]="Saab"; 			// argument to control array's size)
 	myCars[1]="Volvo";
 	myCars[2]="BMW";
@@ -146,26 +162,28 @@ An array can be defined in three ways.
 3:
 	var myCars=["Saab","Volvo","BMW"]; 	// literal array
 
-concat()					concatenates arrays and returns a copy of them
-pop() 						Removes the last one and returns that 
-push()						Adds new elements to the end of an array and 
-						returns the new length
-shift() 					Removes the first one and returns that element
-unshift() 					Adds new elements to the beginning of an array
+concat()						concatenates arrays and returns a copy of them
+pop() 							Removes the last one and returns that 
+push()							Adds new elements to the end and returns the new length
 
-						and returns the new length
-reverse() 					Reverses the order of the elements in an array
-slice() 					Selects a part of it, and returns that
-sort() 						Sorts the elements of an array
-splice() 					Adds/Removes elements from an array
+shift() 						Removes the first one and returns that element
+unshift() 						Adds new elements to the beginning and returns the new length
+                            
+reverse() 						Reverses the order of the elements in an array
+slice() 						Selects a part of it, and returns that
+sort() 							Sorts the elements of an array
+splice() 						Adds/Removes elements from an array
 
-valueOf()					Returns the primitive value
+valueOf()						Returns the primitive value
 toString()
+
+Note: To add completely new key-value pair to an existing object, just use as if it was there 
+beforehand ( ex: obj.newKey=newValue )
 
 -------------------------------------------------------------------------------------------------
 
 Boolean Object
 
--------------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------------
+***
+to be continued
+***

@@ -1,0 +1,52 @@
+@media (max-width: 1020px) {
+  .site {
+    width: 768px;
+  }
+
+  .urun {
+    width: 180px;
+    height: 200px;
+    margin-left: 16px;
+  }
+
+  .haber {
+    width: 374px;
+  }
+
+  .haber img {
+    width: 70px;
+  }
+
+  .haber .yazi {
+    width: 289px;
+  }
+
+  .menu ul {
+    display: none;
+  }
+
+  a.hamburger {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .site {
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .urun {
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .haber {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}

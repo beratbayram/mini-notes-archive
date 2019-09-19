@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+}
+
+.clear {
+    clear: both;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+fieldset {
+    float: left;
+    border: none;
+}
+
+fieldset button{
+    width: 40px;
+    height: 40px;
+    border: 1px solid grey;
+    border-radius: 25%;
+    background-color: whitesmoke;
+}
+
+fieldset button img {
+    width: 75%;
+}
+
+header {
+    top: 0px;
+    border-radius: 0 0 100% 100%;
+    border : 1px solid lightgray;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    background-color: whitesmoke;
+}
+
+.search input{
+    border : 1px solid gray;
+}
+
+.header-inner {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 410px;
+}
+
+section {
+    margin-top: 80px;
+    width: 1040px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+article {
+    padding: 10px;
+    border-radius: 5px;
+    float: left;
+    width: 31%;
+    height: 550px;
+    margin: 1%;
+    background-color: whitesmoke;
+}
+
+article .banner {
+    background-image: url(cancel.png);
+    background-position: center center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+}
+
+article .banner img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 450px;
+}

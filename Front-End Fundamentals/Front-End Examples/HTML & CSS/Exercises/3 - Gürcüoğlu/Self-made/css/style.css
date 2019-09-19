@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Tahoma";
+  font-size: 16px;
+}
+
+.clear {
+  clear: both;
+}
+
+img {
+  display: block;
+}
+
+.site {
+  width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.top img {
+  float: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  float: right;
+}
+
+.tabs ul li {
+  float: left;
+  padding: 10px;
+  padding-top: 65px;
+  font-weight: bold;
+}
+
+.tabs ul li.active {
+  background-color: cadetblue;
+  color: white;
+}
+
+.banner img {
+  width: 100%;
+}
+
+.partners {
+  width: 320px;
+  height: 80px;
+  margin: 20px 0px 20px 20px;
+  float: left;
+  background-color: whitesmoke;
+  border: 1px solid lightgrey;
+}
+
+.partners img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.partners:first-of-type{
+  margin-left: 0px;
+}
+
+.content-left {
+  float: left;
+  width: 320px;
+}
+
+h1 {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.news{
+  margin-bottom: 20px;
+}
+
+.news h2 {
+  font-size : 18px;
+}
+
+.news img {
+  float: left;
+  margin-right: 10px;
+}
+
+.news div p:first-of-type{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.news div p:last-of-type{
+  font-weight: bold;
+}
+
+.content-right {
+  margin-left:20px; 
+  float: left;
+  width: 660px;
+}
+
+.footer {
+  margin-top: 25px;
+  background-color: darkgray;
+  color: white;
+  padding: 25px;
+}

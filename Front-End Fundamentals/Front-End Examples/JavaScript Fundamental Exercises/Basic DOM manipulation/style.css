@@ -1,0 +1,12 @@
+.box {
+    float: left;
+    width: 100px;
+}
+
+.clear {
+    clear: both;
+}
+
+input {
+    width: 100%;
+}

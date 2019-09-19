@@ -1,0 +1,25 @@
+.bir {
+  width: 200px;
+  height: 200px;
+  float: left;
+  background-color: yellow;
+}
+
+.iki {
+  width: 400px;
+  height: 400px;
+  float: left;
+  background-color: red;
+}
+
+@media (max-width: 1200px) {
+  .bir {
+    background-color: green;
+  }
+}
+
+@media (max-width: 900px) {
+  .bir {
+    background-color: purple;
+  }
+}

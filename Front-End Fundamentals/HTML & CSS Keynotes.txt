@@ -75,39 +75,6 @@ CSS ############################################################################
 box-shadow: <x axis>px <y axis>px <blur>px <color>
 
 ##################################################################################################################
-Javascript #######################################################################################################
-##################################################################################################################
-
-arr.push(...)                                                               // Add to the end
-arr.pop()                                                                   // Remove from the end
-arr.unshift(...)                                                            // Add to the beginning
-arr.shift(...)                                                              // Remove from the beginning
-arr.slice("begin","end (not included)")                                     // Returns a copy of specified array
-arr.reverse()
-
-------------------------------------------------------------------------------------------------------------------
-
-setTimeOut(func,x)                                                          // Wait x ms then run func
-setInterval(func,x)                                                         // Call func at every x ms
-
-------------------------------------------------------------------------------------------------------------------
-
-
-for (let key in object/array) {                                             // uses keys
-    console.log(i);                                                         // for arrays keys are index numbers
-    console.log(obje[i])                                                    // might run non-sequential !!!
-}                                                                           // (not recommended for arrays)
-
-for (let iterator of array) {                                               // uses iterators
-    console.log(i);                                                         // doesn't work on objects
-}
-
-------------------------------------------------------------------------------------------------------------------
-
-Note: To add completely new key-value pair to an existing object, just use as if it was there beforehand 
-      ( ex: obj.newKey=newValue )
-
-##################################################################################################################
 Things should be added to every project ##########################################################################
 ##################################################################################################################
 

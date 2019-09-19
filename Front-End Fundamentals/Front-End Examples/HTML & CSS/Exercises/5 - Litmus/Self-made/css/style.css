@@ -1,0 +1,131 @@
+.clear {
+  clear: both;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site {
+  width: 990px;
+  margin: 0px auto;
+}
+
+.top {
+  margin-top: 50px;
+}
+
+.logo {
+  float: left;
+}
+
+.menu {
+  float: right;
+}
+
+.menu1 {
+  float: right;
+  background-color: darkslategrey;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+ul {
+  line
+}
+.menu1 li {
+  float: left;
+  padding: 10px;
+  color: white;
+}
+
+.menu2 li {
+  float: left;
+  padding: 10px;
+  color: white;
+}
+
+.menu2 {
+  float: right;
+  background-color: #02ABFB;
+}
+
+.main-image img {
+  width: 100%;
+  display: block;
+  padding: 5px;
+  border: 1px solid darkgray;
+  margin-top: 25px;
+}
+
+.content {
+  float: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 700px;
+}
+
+.content p {
+  line-height: 20px;
+  color: darkslategray;
+  margin-top: 20px;
+}
+
+.sidebar {
+  padding-left: 10px;
+  float: left;
+  width: 250px;
+  margin-top: 30px;
+  padding-left: 30px;
+  border-left: 1px solid grey;
+}
+
+.title {
+  color: #02ABFB;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.title span:first-of-type {
+  font-weight: bold;
+}
+
+.title span:last-of-type {
+  display: inline-block;
+  vertical-align: middle;
+  height: 7px;
+  width: 40px;
+  border-top: 1px solid #02ABFB
+}
+
+.currencies td {
+  width: 300px;
+  height: 50px;
+  padding-left: 10px;
+}
+
+.currency p {
+  line-height: 30px;
+  color: darkslategrey;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.footer {
+  color: darkslategray;
+  border-top: 1px solid gray;
+  padding: 10px;
+  margin-top: 30px;
+}
