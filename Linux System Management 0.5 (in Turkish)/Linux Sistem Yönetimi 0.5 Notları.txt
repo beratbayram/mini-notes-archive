@@ -11,8 +11,8 @@ force close                                             => killal -9 <ID>
 
 - I/O -
 
-stdout redirection                                      => > , 1> , >> , 1>>
-stderr redirection                                      => 2> , 2>>
+stdout yönlendirme                                      => > , 1> , >> , 1>>
+stderr yönlendirme                                      => 2> , 2>>
 
 - Kullanıcı İşlemleri -
 
