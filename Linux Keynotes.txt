@@ -1,0 +1,50 @@
+- HELP SOURCES - 
+
+lsb_release					// Linux distribution name
+(cat /etc/*release) 
+uname -a					// Kernel version
+whereis <cmd>				// The location of the executable and help
+							  page of the command (-s for the source code) 
+locate <text>				// Fast find
+dmidecode -t <component>	// Info about that component using DMI table
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+- FILE OPERATIONS - 
+
+cd -						// Go to previous location
+ls							// -l for detailed, -la for hidden files, -R for recursive
+							// -S sort by size, -F sort by type, -lt sort by date
+							// -lh human-readable view
+tr							// Practical text modifications
+
+umask						// Changing default permissions for new ones
+chattr						// Blocking all operations to a file (even for su)
+shred						// safer deleter
+
+ln							// Create hard link (-s for symbolic link) 
+stat / file					// Details about a file
+sed							// Immensely powerful text changer
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+- PROCESS MANAGEMENT -
+
+xkill						// Changes the mouse to a skull which kills any
+							   window it clicks
+top							// Shows active processes
+CTRL-Z + fg + bg + jobs		// Background job management
+service --status-all		// Show all services with their statuses 	
+tasksel						// Installation of app bunches
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+- MISCELLANEOUS -
+
+<cmd> | xargs <cmd>			// Pipes outputs of one command to another one
+							   by one
+parted						// Partition manager
+dd							// disk duplication and iso creation
+/etc/profile				// Commands to be executed at startup
+ 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
