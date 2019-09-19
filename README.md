@@ -5,8 +5,8 @@ Notes about various tech topics from various resources that i gathered while lea
 Available notes:
 
 * Front-End Fundamentals
-  * HTML & CSS Keynotes
   * **Javascript Keynotes**
+  * HTML & CSS Keynotes
   
   > This folder is also consist of various examples
 
