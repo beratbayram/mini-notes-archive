@@ -1,189 +1,185 @@
-JAVASCRIPT KEYNOTES
+#####################################################################################################
+JAVASCRIPT KEYNOTES #################################################################################
+#####################################################################################################
 
-<script type="text/javascript">  		// To prevent browsers which doesn't execute
-<!--						            // javascript from displaying code as normal
-	document.write("Hello World!");		// text, the HTML comment tag should be used
-//-->									// to "hide" the JavaScript
-</script>								// (It is also a part of the JS standard)
+	<script type="text/javascript">  		// To prevent browsers which doesn't execute
+	<!--						            // javascript from displaying code as normal
+		document.write("Hello World!");		// text, the HTML comment tag should be used
+	//-->									// to "hide" the JavaScript
+	</script>								// (It is also a part of the JS standard)
 
-[I] The two forward slashes at the end of comment line (//) is the JavaScript comment symbol.
-This prevents JavaScript from executing the --> tag.
+	!!! The two forward slashes at the end of comment line (//) is the JavaScript comment symbol.
+	This prevents JavaScript from executing the --> tag.
 
--------------------------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------------------------
 
-The value of a variable does not reset (or cleared) when you redeclare it.
+	The value of a variable does not reset (or cleared) when you redeclare it.
 
--------------------------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------------------------
 
-setTimeOut(func,x)						// Wait x ms then run func
-setInterval(func,x)						// Call func at every x ms
+	setTimeOut(func,x)						// Wait x ms then run func
+	setInterval(func,x)						// Call func at every x ms
 
--------------------------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------------------------
 
-for (let key in object/array) {         // uses keys
-    console.log(i);                     // for arrays keys are index numbers
-    console.log(obje[i])                // might run non-sequential !!!
-}                                       // (not recommended for arrays)
+	for (let key in object/array) {         // uses keys
+		console.log(i);                     // for arrays keys are index numbers
+		console.log(obje[i])                // might run non-sequential !!!
+	}                                       // (not recommended for arrays)
 
-for (let iterator of array) {           // uses iterators
-    console.log(i);                     // doesn't work on objects
-}
+	for (let iterator of array) {           // uses iterators
+		console.log(i);                     // doesn't work on objects
+	}
 
--------------------------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------------------------
 
-JavaScript has three kind of popup boxes:
-	* Alert("sometext")
-	* Confirm("sometext"):boolean
-	* Prompt("sometext","defaultvalue"):inputString / null.
+	JavaScript has three kind of popup boxes:
+		* Alert("sometext")
+		* Confirm("sometext"):boolean
+		* Prompt("sometext","defaultvalue"):inputString / null.
 
--------------------------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------------------------
 
-document.location.href="http://www.w3schools.com/"; // Redirect to another page
+	document.location.href="http://www.w3schools.com/"; // Redirect to another page
 
--------------------------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------------------------
 
-JS Global Functions
+	JS Global Functions
 
-* eval()							Executes a string as if it was script code
-* isFinite()						Determines if a value is a finite, legal number
-* isNaN()							Determines if a value is an illegal number
-* Number()							Converts an object's value to a number
-* parseFloat()						Parses a string and returns a float
-* parseInt()						Parses a string and returns an integer
-* String()							Converts an object's value to a string
+	* eval()								// Executes a string as if it was script code
+	* isFinite()							// Determines if a value is a finite, legal number
+	* isNaN()								// Determines if a value is an illegal number
+	* Number()								// Converts an object's value to a number
+	* parseFloat()							// Parses a string and returns a float
+	* parseInt()							// Parses a string and returns an integer
+	* String()								// Converts an object's value to a string
 
--------------------------------------------------------------------------------------------------
-#################################################################################################
--------------------------------------------------------------------------------------------------
+	BREAK UP A CODE LINE ----------------------------------------------------------------------------
 
-BREAK UP A CODE LINE
+	You can break up a code line within a text string with a backslash. The example below will be
+	displayed properly:
 
-You can break up a code line within a text string with a backslash. The example below will be
-displayed properly:
+	document.write("Hello \
+	World!");
 
-document.write("Hello \
-World!");
+	However, you cannot break up a code line like this:
 
-However, you cannot break up a code line like this:
+	document.write \
+	("Hello World!");
 
-document.write \
-("Hello World!");
+#####################################################################################################
+JAVASCRIPT OBJECTS ----------------------------------------------------------------------------------
+#####################################################################################################
 
--------------------------------------------------------------------------------------------------
-#################################################################################################
--------------------------------------------------------------------------------------------------
+	Number Object -----------------------------------------------------------------------------------
 
-JAVASCRIPT EVENTS
+		var numObj = new Number(num)
 
-<x event="JS CODE">
+		* toExponential(x) 				Converts a number into an exponential notation
+		* toFixed(x) 					Formats a number with x numbers of digits after
+										the decimal point
+		* toPrecision(x) 				Formats a number to x length
+		* toString() 					Converts a Number object to a string
+		* valueOf() 					Returns the primitive value of a Number object
 
-	* onClick
-	* onLoad and onUnload
-	* onFocus, onBlur and onChange (often used in validation of form fields)
-	* onMouseOver and onMouseOut
-	* ...
+	String Object ------------------------------------------------------------------------------------
 
--------------------------------------------------------------------------------------------------
+		* indexOf(x) 					Returns the position of the first found x
+		* lastIndexOf(x) 				Returns the position of the last found x
+		* match()						Searches for a regex then returns the matches
+		* replace(x)					match() it then replace them with x
+		* search() 						match() it but instead return the position
 
-onSubmit
+		* slice()						Extracts a part of a string and returns that
+		* split()						Splits a string into an array of substrings
+		* substring()					Extracts the characters
+										(between two specified indices)
+		* substr()						Extracts the characters
+										(beginning at a specified start	position, and 
+										through the specified number of character)
+		* toLowerCase()
+		* toUpperCase()
+		* valueOf()						Returns the primitive value
 
-The onSubmit event is used to validate ALL form fields before submitting it.
-The checkForm() function will be called when the user clicks the submit button in the form. The
-function checkForm() returns either true or false. If it returns true the
-form will be submitted, otherwise the submit will be cancelled:
+		(regex: regular expression)
+		
+	Date Object --------------------------------------------------------------------------------------
 
-<form method="post" action="xxx.htm" onsubmit="return checkForm()">
+		There are four ways of instantiating a date:
 
--------------------------------------------------------------------------------------------------
-#################################################################################################
--------------------------------------------------------------------------------------------------
-JAVASCRIPT OBJECTs
+			* new Date() 				// current date and time
+			* new Date(milliseconds) 	// milliseconds since 1970/01/01
+			* new Date(dateString)
+			* new Date(year, month, day, hours, minutes, seconds, milliseconds)
 
-Number Object
+		[I] Date objects can be simply compared with comparison operators like this "myDate>today"
 
-var numObj = new Number(num)
+		[?] myDate.setDate(myDate.getDate() + 5);		// 5 days into the future
 
-* toExponential(x) 				Converts a number into an exponential notation
-* toFixed(x) 					Formats a number with x numbers of digits after
-								the decimal point
-* toPrecision(x) 				Formats a number to x length
-* toString() 					Converts a Number object to a string
-* valueOf() 					Returns the primitive value of a Number object
+	Array Object -------------------------------------------------------------------------------------
 
--------------------------------------------------------------------------------------------------
+		An array can be defined in three ways:
 
-String Object
+			1) var myCars=new Array();		// regular array (add an optional integer
+			   myCars[0]="Saab"; 			// argument to control array's size)
+			   myCars[1]="Volvo";
+			   myCars[2]="BMW";
+			2) var myCars=new Array("Saab","Volvo","BMW"); // condensed array
+			3) var myCars=["Saab","Volvo","BMW"]; 	// literal array
 
-* indexOf(x) 					Returns the position of the first found x
-* lastIndexOf(x) 				Returns the position of the last found x
-* match()						Searches for a regex then returns the matches
-* replace(x)					match() it then replace them with x
-* search() 						match() it but instead return the position
+		Member Functions:
 
-* slice()						Extracts a part of a string and returns that
-* split()						Splits a string into an array of substrings
-* substring()					Extracts the characters
-								(between two specified indices)
-* substr()						Extracts the characters
-								(beginning at a specified start	position, and 
-								through the specified number of character)
-* toLowerCase()
-* toUpperCase()
-* valueOf()						Returns the primitive value
+			concat()						concatenates arrays and returns a copy of them
+			pop() 							Removes the last one and returns that 
+			push()							Adds new elements to the end and returns the new length
 
-(regex: regular expression)
+			shift() 						Removes the first one and returns that element
+			unshift() 						Adds new elements to the beginning and returns the new length
+										
+			reverse() 						Reverses the order of the elements in an array
+			slice() 						Selects a part of it, and returns that
+			sort() 							Sorts the elements of an array
+			splice() 						Adds/Removes elements from an array
 
--------------------------------------------------------------------------------------------------
+			valueOf()						Returns the primitive value
+			toString()
 
-Date Object
+		Note: To add completely new key-value pair to an existing object, just use as if it was there 
+		beforehand ( ex: obj.newKey=newValue )
 
-There are four ways of instantiating a date:
-	* new Date() 				// current date and time
-	* new Date(milliseconds) 	// milliseconds since 1970/01/01
-	* new Date(dateString)
-	* new Date(year, month, day, hours, minutes, seconds, milliseconds)
+	-------------------------------------------------------------------------------------------------
 
-[I] Date objects can be simply compared with comparison operators like this "myDate>today"
+	Boolean Object
 
-[?] myDate.setDate(myDate.getDate()+5);		// 5 days into the future
+		***
+		To be continued
+		***
 
--------------------------------------------------------------------------------------------------
+#####################################################################################################
+JAVASCRIPT EVENTS -----------------------------------------------------------------------------------
+#####################################################################################################
 
-Array Object
+	<element event="JS CODE">
 
-An array can be defined in three ways.
-1:
-	var myCars=new Array();		// regular array (add an optional integer
-	myCars[0]="Saab"; 			// argument to control array's size)
-	myCars[1]="Volvo";
-	myCars[2]="BMW";
-2:
-	var myCars=new Array("Saab","Volvo","BMW"); // condensed array
-3:
-	var myCars=["Saab","Volvo","BMW"]; 	// literal array
+		* onClick
+		* onLoad and onUnload
+		* onFocus, onBlur and onChange (often used in validation of form fields)
+		* onMouseOver and onMouseOut
+		* ...
 
-concat()						concatenates arrays and returns a copy of them
-pop() 							Removes the last one and returns that 
-push()							Adds new elements to the end and returns the new length
+	-----------------------------------------------------------------------------------------------------
 
-shift() 						Removes the first one and returns that element
-unshift() 						Adds new elements to the beginning and returns the new length
-                            
-reverse() 						Reverses the order of the elements in an array
-slice() 						Selects a part of it, and returns that
-sort() 							Sorts the elements of an array
-splice() 						Adds/Removes elements from an array
+	onSubmit
 
-valueOf()						Returns the primitive value
-toString()
+		The onSubmit event is used to validate ALL form fields before submitting it.
+		The checkForm() function will be called when the user clicks the submit button in the form. The
+		function checkForm() returns either true or false. If it returns true the
+		form will be submitted, otherwise the submit will be cancelled:
 
-Note: To add completely new key-value pair to an existing object, just use as if it was there 
-beforehand ( ex: obj.newKey=newValue )
+		<form method="post" action="xxx.htm" onsubmit="return checkForm()">
 
--------------------------------------------------------------------------------------------------
+	-----------------------------------------------------------------------------------------------------
 
-Boolean Object
-
-***
-to be continued
-***
+	***
+	To be continued
+	***
