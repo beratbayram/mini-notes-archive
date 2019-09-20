@@ -93,6 +93,9 @@ img {                                                                       // P
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">      // Sets viewport to device width
 
+section, article, aside, footer, header, nav {                              // Fallback for HTML 4
+  display: block;
+}
 
 ##################################################################################################################
 Others ###########################################################################################################
