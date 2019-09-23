@@ -1,50 +1,60 @@
-- HELP SOURCES - 
+################################################################################# 
+LINUX KEYNOTES ------------------------------------------------------------------
+################################################################################# 
 
-lsb_release					// Linux distribution name
-(cat /etc/*release) 
+HELP SOURCES
+
+cat /etc/*release           // Show distro info
 uname -a					// Kernel version
 whereis <cmd>				// The location of the executable and help
-							  page of the command (-s for the source code) 
+                               page of the command (-s for the source code) 
 locate <text>				// Fast find
 dmidecode -t <component>	// Info about that component using DMI table
 
+################################################################################# 
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-
-- FILE OPERATIONS - 
+FILE OPERATIONS
 
 cd -						// Go to previous location
 ls							// -l for detailed, -la for hidden files, -R for recursive
-							// -S sort by size, -F sort by type, -lt sort by date
-							// -lh human-readable view
-tr							// Practical text modifications
+                            // -S sort by size, -F sort by type, -lt sort by date
+                            // -lsh show sizes in human-readable view form
 
 umask						// Changing default permissions for new ones
 chattr						// Blocking all operations to a file (even for su)
 shred						// safer deleter
+(ex: shred -v -n 25 -u -z /tmp/test.txt)
 
 ln							// Create hard link (-s for symbolic link) 
 stat / file					// Details about a file
-sed							// Immensely powerful text changer
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-- PROCESS MANAGEMENT -
+################################################################################# 
+
+PROCESS MANAGEMENT
 
 xkill						// Changes the mouse to a skull which kills any
-							   window it clicks
+                               window it clicks
 top							// Shows active processes
 CTRL-Z + fg + bg + jobs		// Background job management
 service --status-all		// Show all services with their statuses 	
-tasksel						// Installation of app bunches
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+#################################################################################
 
-- MISCELLANEOUS -
+DISK OPERATIONS
+
+dd							// disk duplication and iso creation
+parted						// Partition manager
+ls -lha /dev/disk/by-uuid	// Find UUID of disks
+sudo fdisk -l               // Informations about the each partition/disk
+
+################################################################################# 
+
+MISCELLANEOUS
 
 <cmd> | xargs <cmd>			// Pipes outputs of one command to another one
-							   by one
-parted						// Partition manager
-dd							// disk duplication and iso creation
+                               by one
 /etc/profile				// Commands to be executed at startup
+tr							// Practical text modifications
+sed							// Insanely powerful text changer
  
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+################################################################################# 
