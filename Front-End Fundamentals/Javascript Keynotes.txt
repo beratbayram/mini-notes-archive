@@ -4,19 +4,19 @@ JAVASCRIPT KEYNOTES ############################################################
 
     Miscellaneous Notes -----------------------------------------------------------------------------
 
-    !!! The value of a variable does not reset (or cleared) when you redeclare it.
-    !!! document.location.href="http://www.w3schools.com/"; // Redirect to another page
+        !!! The value of a variable does not reset (or cleared) when you redeclare it.
+        !!! document.location.href="http://www.w3schools.com/"; // Redirect to another page
 
-    Hiding JS From View:
+        Hiding JS From View:
 
-        <script type="text/javascript">  		// To prevent browsers which doesn't execute
-        <!--						            // javascript from displaying code as normal
-            document.write("Hello World!");		// text, the HTML comment tag should be used
-        //-->									// to "hide" the JavaScript
-        </script>								// (It is also a part of the JS standard)
+            <script type="text/javascript">  		// To prevent browsers which doesn't execute js from
+            <!--						            // displaying code as normal text, the HTML comment
+                document.write("Hello World!");		// tag should be used to "hide" the js
+            //-->									// (It is also a part of the JS standard)
+            </script>
 
-        !!! The two forward slashes at the end of comment line (//) is the JavaScript comment symbol.
-            This prevents JavaScript from executing the --> tag.
+            !!! The two forward slashes at the end of comment line (//) is the JavaScript comment symbol.
+                This prevents JavaScript from executing the --> tag.
     
     JS Global Functions -----------------------------------------------------------------------------
 
@@ -49,41 +49,41 @@ JAVASCRIPT KEYNOTES ############################################################
         
     Labels ------------------------------------------------------------------------------------------
 
-    labelname: {                                // The continue (with(out) a label) can only be used
-        ...                                     // to skip one iteration.
-        if(...) break labelname
-        ...                                     // The break; without a label reference, can only be
-        }                                       // used to jump out of a loop or a switch but with a
-                                                // label, can be used to jump out of any code block
+        labelname: {                                // The continue (with(out) a label) can only be used
+            ...                                     // to skip one iteration.
+            if(...) break labelname
+            ...                                     // The break; without a label reference, can only be
+            }                                       // used to jump out of a loop or a switch but with a
+                                                    // label, can be used to jump out of any code block
 
 #####################################################################################################
 TYPE CONVERSION -------------------------------------------------------------------------------------
 #####################################################################################################
 
-Tricky Data Types:
-    typeof NaN                              // Returns "number"
-    typeof [1,2,3,4]                        // Returns "object"
-    typeof newVar                           // Returns "undefined"
-    typeof null                             // Returns "object"
+    Tricky Data Types:
+        typeof NaN                                  // Returns "number"
+        typeof [1,2,3,4]                            // Returns "object"
+        typeof newVar                               // Returns "undefined"
+        typeof null                                 // Returns "object"
 
-!!! Because Arrays and Dates are actually objects, typeof cannot used to check it. Another simple way to
-    check it:
+    !!! Because Arrays and Dates are actually objects, typeof cannot used to check it. Another simple way
+        to check it:
 
-function isArray(myArray) {                       | function isDate(myDate) {
-  return myArray.constructor === Array;           |     return myDate.constructor === Date;
-}                                                 | }
+    function isArray(myArray) {                       | function isDate(myDate) {
+    return myArray.constructor === Array;           |     return myDate.constructor === Date;
+    }                                                 | }
 
 #####################################################################################################
 COMPARISON ------------------------------------------------------------------------------------------
 #####################################################################################################
 
-    !!! Everything without a "proper value" is false: 0, -0, "", undefined, null, NaN
-    !!! === means equal value AND equal type whereas, !== means not equal value OR not equal type
-    !!! Comparing two JavaScript objects will always return false unless they come from same origin.
-    !!! When comparing a string with a number, JavaScript will convert the string to a number when
+     *  Everything without a "proper value" is false: 0, -0, "", undefined, null, NaN
+     *  === means equal value AND equal type whereas, !== means not equal value OR not equal type
+     *  Comparing two JavaScript objects will always return false unless they come from same origin.
+     *  When comparing a string with a number, JavaScript will convert the string to a number when
         doing the comparison. An empty string converts to 0. A non-numeric string converts to NaN.
-    !!! Any comparison with NaN is always false.
-    !!! When comparing two strings, "2" will be greater than "12", because (alphabetically) 1 is
+     *  Any comparison with NaN is always false.
+     *  When comparing two strings, "2" will be greater than "12", because (alphabetically) 1 is
         less than 2.
 
     Switch-case:
@@ -108,53 +108,53 @@ OBJECTS ------------------------------------------------------------------------
 
         var numObj = new Number(num)
 
-        * toExponential(x) 				Converts a number into an exponential notation
-        * toFixed(x) 					Formats a number with x numbers of digits after
-                                        the decimal point
-        * toPrecision(x) 				Formats a number to x length
-        * toString() 					Converts a Number object to a string
-        * valueOf() 					Returns the primitive value of a Number object
+        * toExponential(x) 				        // Converts a number into an exponential notation
+        * toFixed(x) 					        // Formats a number with x numbers of digits after
+                                                   the decimal point
+        * toPrecision(x) 				        // Formats a number to x length
+        * toString() 					        // Converts a Number object to a string
+        * valueOf() 					        // Returns the primitive value of a Number object
 
     String Object -----------------------------------------------------------------------------------
 
-        * indexOf(x) 					Returns the position of the first found x
-        * lastIndexOf(x) 				Returns the position of the last found x
-        * match()						Searches for a regex then returns the matches
-        * replace(x)					match() it then replace them with x
-        * search() 						match() it but instead return the position
+        * indexOf(x) 					        // Returns the position of the first found x
+        * lastIndexOf(x) 				        // Returns the position of the last found x
+        * match()						        // Searches for a regex then returns the matches
+        * replace(x)					        // match() it then replace them with x
+        * search() 						        // match() it but instead return the position
 
-        * slice()						Extracts a part of a string and returns that
-        * split()						Splits a string into an array of substrings
-        * substring()					Extracts the characters
-                                        (between two specified indices)
-        * substr()						Extracts the characters
-                                        (beginning at a specified start	position, and
-                                        through the specified number of character)
+        * slice()						        // Extracts a part of a string and returns that
+        * split()						        // Splits a string into an array of substrings
+        * substring()					        // Extracts the characters
+                                                   (between two specified indices)
+        * substr()						        // Extracts the characters
+                                                   (beginning at a specified start position and
+                                                   through the specified number of character)
         * toLowerCase()
         * toUpperCase()
-        * valueOf()						Returns the primitive value
+        * valueOf()						        // Returns the primitive value
 
-        (regex: regular expression)
+        !!! regex: regular expression (https://www.w3schools.com/js/js_regexp.asp)
 
     Date Object -------------------------------------------------------------------------------------
 
         There are four ways of instantiating a date:
 
-            * new Date() 				// current date and time
-            * new Date(milliseconds) 	// milliseconds since 1970/01/01
+            * new Date() 				        // current date and time
+            * new Date(milliseconds) 	        // milliseconds since 1970/01/01
             * new Date(dateString)
             * new Date(year, month, day, hours, minutes, seconds, milliseconds)
 
-        [I] Date objects can be simply compared with comparison operators like this "myDate>today"
+        !!! Date objects can be simply compared with comparison operators like this "myDate>today"
 
-        [?] myDate.setDate(myDate.getDate() + 5);		// 5 days into the future
+        ex: myDate.setDate(myDate.getDate()+5)	// 5 days into the future
 
     Array Object ------------------------------------------------------------------------------------
 
         An array can be defined in three ways:
 
-            1) var myCars=new Array();		// regular array (add an optional integer
-               myCars[0]="Saab"; 			// argument to control array's size)
+            1) var myCars=new Array();		    // regular array (add an optional integer
+               myCars[0]="Saab"; 			    // argument to control array's size)
                myCars[1]="Volvo";
                myCars[2]="BMW";
             2) var myCars=new Array("Saab","Volvo","BMW"); // condensed array
@@ -162,20 +162,20 @@ OBJECTS ------------------------------------------------------------------------
 
         Member Functions:
 
-            * concat()						// concatenates arrays and returns a copy of them
-            * pop() 					    // Removes the last one and returns that
-            * push()						// Adds new ones to the end and returns the new length
+            * concat()						    // concatenates arrays and returns a copy of them
+            * pop() 					        // Removes the last one and returns that
+            * push()						    // Adds new ones to the end and returns the new length
 
-            * shift() 						// Removes the first one and returns that element
-            * unshift() 					// Adds new ones to the beginning and returns the
-                                               new length
+            * shift() 						    // Removes the first one and returns that element
+            * unshift() 					    // Adds new ones to the beginning and returns the
+                                                   new length
 
-            * reverse() 					// Reverses the order of the elements in an array
-            * slice() 						// Selects a part of it, and returns that
-            * sort() 						// Sorts the elements of an array
-            * splice() 						// Adds/Removes elements from an array
+            * reverse() 					    // Reverses the order of the elements in an array
+            * slice() 						    // Selects a part of it, and returns that
+            * sort() 						    // Sorts the elements of an array
+            * splice() 						    // Adds/Removes elements from an array
 
-            * valueOf()						// Returns the primitive value
+            * valueOf()						    // Returns the primitive value
             * toString()
 
         !!! To add completely new key-value pair to an existing object, just use it as if it was
@@ -185,21 +185,41 @@ OBJECTS ------------------------------------------------------------------------
 
         * Math.E ,Math.PI
 
-        * Math.round()						// Returns nearest int
-        * Math.ceil()   					// Returns rounded up int value
-        * Math.floor()						// Returns rounded down int value
+        * Math.round()						    // Returns nearest int
+        * Math.ceil()   					    // Returns rounded up int value
+        * Math.floor()						    // Returns rounded down int value
 
-        * Math.pow()						// Power function
-        * Math.sqrt()						// Squareroot function
+        * Math.pow()						    // Power function
+        * Math.sqrt()						    // Squareroot function
         * Math.min(x, y, z, ...)
         * Math.max(x, y, z, ...)
-        * Math.random()			// returns a random number between 0 (inclusive) and 1 (exclusive)
+        * Math.random()			                // returns a random number between 0 (inclusive) and
+                                                //  1 (exclusive)
 
         !!! This function returns a random number between min and max (both included):
 
             function getRandomInt(min, max) {
                 return Math.floor(Math.random() * (max - min + 1) ) + min;
             }
+
+
+#####################################################################################################
+THIS ------------------------------------------------------------------------------------------------
+#####################################################################################################
+
+     *  Alone, this refers to the global object.
+     *  In a method, this refers to the owner object.
+     *  In an event, this refers to the element that received the event.
+
+     *  In a function, this refers to the global object.
+     *  In a function, in strict mode, this is undefined.
+    
+     *  Methods like call(), and apply() can refer this to any object.
+
+     *  Arrow functions do not bind their own this instead, they inherit it (just any other variable)
+        from the parent scope
+
+        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
 
 #####################################################################################################
 EVENTS ----------------------------------------------------------------------------------------------
