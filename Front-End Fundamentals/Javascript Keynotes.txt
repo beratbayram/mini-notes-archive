@@ -9,10 +9,10 @@ JAVASCRIPT KEYNOTES ############################################################
 
         Hiding JS From View:
 
-            <script type="text/javascript">  		// To prevent browsers which doesn't execute js from
-            <!--						            // displaying code as normal text, the HTML comment
-                document.write("Hello World!");		// tag should be used to "hide" the js
-            //-->									// (It is also a part of the JS standard)
+            <script type="text/javascript">     // To prevent browsers which doesn't execute js from
+            <!--				// displaying code as normal text, the HTML comment
+                document.write("Hello World!");	// tag should be used to "hide" the js
+            //-->				// (It is also a part of the JS standard)
             </script>
 
             !!! The two forward slashes at the end of comment line (//) is the JavaScript comment symbol.
@@ -22,15 +22,15 @@ JAVASCRIPT KEYNOTES ############################################################
 
         !!! The constructor property returns the constructor function for all variables.
 
-        * eval()								// Executes a string as if it was script code
-        * isFinite()							// Determines if a value is a finite, legal number
-        * Number()								// Converts an object's value to a number
-        * parseFloat()							// Parses a string and returns a float
-        * parseInt()							// Parses a string and returns an integer
-        * String()								// Converts an object's value to a string
+        * eval()				// Executes a string as if it was script code
+        * isFinite()				// Determines if a value is a finite, legal number
+        * Number()				// Converts an object's value to a number
+        * parseFloat()				// Parses a string and returns a float
+        * parseInt()				// Parses a string and returns an integer
+        * String()				// Converts an object's value to a string
 
-        * setTimeOut(func,x)					// Wait x ms then run func
-        * setInterval(func,x)					// Call func at every x ms
+        * setTimeOut(func,x)			// Wait x ms then run func
+        * setInterval(func,x)			// Call func at every x ms
 
         Popup boxes:
             * Alert("sometext")
@@ -49,29 +49,29 @@ JAVASCRIPT KEYNOTES ############################################################
         
     Labels ------------------------------------------------------------------------------------------
 
-        labelname: {                                // The continue (with(out) a label) can only be used
-            ...                                     // to skip one iteration.
+        labelname: {                            // The continue (with(out) a label) can only be used
+            ...                                 // to skip one iteration.
             if(...) break labelname
-            ...                                     // The break; without a label reference, can only be
-            }                                       // used to jump out of a loop or a switch but with a
-                                                    // label, can be used to jump out of any code block
+            ...                                 // The break; without a label reference, can only be
+            }                                   // used to jump out of a loop or a switch but with a
+                                                // label, can be used to jump out of any code block
 
 #####################################################################################################
 TYPE CONVERSION -------------------------------------------------------------------------------------
 #####################################################################################################
 
     Tricky Data Types:
-        typeof NaN                                  // Returns "number"
-        typeof [1,2,3,4]                            // Returns "object"
-        typeof newVar                               // Returns "undefined"
-        typeof null                                 // Returns "object"
+        typeof NaN                              // Returns "number"
+        typeof [1,2,3,4]                        // Returns "object"
+        typeof newVar                           // Returns "undefined"
+        typeof null                             // Returns "object"
 
     !!! Because Arrays and Dates are actually objects, typeof cannot used to check it. Another simple way
         to check it:
 
-    function isArray(myArray) {                       | function isDate(myDate) {
-    return myArray.constructor === Array;           |     return myDate.constructor === Date;
-    }                                                 | }
+    function isArray(myArray) {                 | function isDate(myDate) {
+        return myArray.constructor === Array;   |     return myDate.constructor === Date;
+    }                                           | }
 
 #####################################################################################################
 COMPARISON ------------------------------------------------------------------------------------------
@@ -108,31 +108,31 @@ OBJECTS ------------------------------------------------------------------------
 
         var numObj = new Number(num)
 
-        * toExponential(x) 				        // Converts a number into an exponential notation
-        * toFixed(x) 					        // Formats a number with x numbers of digits after
+        * toExponential(x) 		        // Converts a number into an exponential notation
+        * toFixed(x) 				// Formats a number with x numbers of digits after
                                                    the decimal point
-        * toPrecision(x) 				        // Formats a number to x length
-        * toString() 					        // Converts a Number object to a string
-        * valueOf() 					        // Returns the primitive value of a Number object
+        * toPrecision(x) 			// Formats a number to x length
+        * toString() 				// Converts a Number object to a string
+        * valueOf() 			        // Returns the primitive value of a Number object
 
     String Object -----------------------------------------------------------------------------------
 
-        * indexOf(x) 					        // Returns the position of the first found x
-        * lastIndexOf(x) 				        // Returns the position of the last found x
-        * match()						        // Searches for a regex then returns the matches
-        * replace(x)					        // match() it then replace them with x
-        * search() 						        // match() it but instead return the position
+        * indexOf(x) 				// Returns the position of the first found x
+        * lastIndexOf(x) 			// Returns the position of the last found x
+        * match()				// Searches for a regex then returns the matches
+        * replace(x)				// match() it then replace them with x
+        * search() 				// match() it but instead return the position
 
-        * slice()						        // Extracts a part of a string and returns that
-        * split()						        // Splits a string into an array of substrings
-        * substring()					        // Extracts the characters
+        * slice()				// Extracts a part of a string and returns that
+        * split()				// Splits a string into an array of substrings
+        * substring()				// Extracts the characters
                                                    (between two specified indices)
-        * substr()						        // Extracts the characters
+        * substr()				// Extracts the characters
                                                    (beginning at a specified start position and
                                                    through the specified number of character)
         * toLowerCase()
         * toUpperCase()
-        * valueOf()						        // Returns the primitive value
+        * valueOf()			        // Returns the primitive value
 
         !!! regex: regular expression (https://www.w3schools.com/js/js_regexp.asp)
 
@@ -140,7 +140,7 @@ OBJECTS ------------------------------------------------------------------------
 
         There are four ways of instantiating a date:
 
-            * new Date() 				        // current date and time
+            * new Date()		        // current date and time
             * new Date(milliseconds) 	        // milliseconds since 1970/01/01
             * new Date(dateString)
             * new Date(year, month, day, hours, minutes, seconds, milliseconds)
@@ -153,29 +153,29 @@ OBJECTS ------------------------------------------------------------------------
 
         An array can be defined in three ways:
 
-            1) var myCars=new Array();		    // regular array (add an optional integer
-               myCars[0]="Saab"; 			    // argument to control array's size)
+            1) var myCars=new Array();          // regular array (add an optional integer
+               myCars[0]="Saab";	        // argument to control array's size)
                myCars[1]="Volvo";
                myCars[2]="BMW";
-            2) var myCars=new Array("Saab","Volvo","BMW"); // condensed array
-            3) var myCars=["Saab","Volvo","BMW"]; 	// literal array
+            2) var myCars=new Array("Saab","Volvo","BMW");      // condensed array
+            3) var myCars=["Saab","Volvo","BMW"];               // literal array
 
         Member Functions:
 
-            * concat()						    // concatenates arrays and returns a copy of them
-            * pop() 					        // Removes the last one and returns that
-            * push()						    // Adds new ones to the end and returns the new length
+            * concat()				// concatenates arrays and returns a copy of them
+            * pop() 				// Removes the last one and returns that
+            * push()				// Adds new ones to the end and returns the new length
 
-            * shift() 						    // Removes the first one and returns that element
-            * unshift() 					    // Adds new ones to the beginning and returns the
+            * shift() 				// Removes the first one and returns that element
+            * unshift() 			// Adds new ones to the beginning and returns the
                                                    new length
 
-            * reverse() 					    // Reverses the order of the elements in an array
-            * slice() 						    // Selects a part of it, and returns that
-            * sort() 						    // Sorts the elements of an array
-            * splice() 						    // Adds/Removes elements from an array
+            * reverse() 			// Reverses the order of the elements in an array
+            * slice() 				// Selects a part of it, and returns that
+            * sort() 				// Sorts the elements of an array
+            * splice() 				// Adds/Removes elements from an array
 
-            * valueOf()						    // Returns the primitive value
+            * valueOf()				// Returns the primitive value
             * toString()
 
         !!! To add completely new key-value pair to an existing object, just use it as if it was
@@ -185,15 +185,15 @@ OBJECTS ------------------------------------------------------------------------
 
         * Math.E ,Math.PI
 
-        * Math.round()						    // Returns nearest int
-        * Math.ceil()   					    // Returns rounded up int value
-        * Math.floor()						    // Returns rounded down int value
+        * Math.round()				// Returns nearest int
+        * Math.ceil()   			// Returns rounded up int value
+        * Math.floor()				// Returns rounded down int value
 
-        * Math.pow()						    // Power function
-        * Math.sqrt()						    // Squareroot function
+        * Math.pow()				// Power function
+        * Math.sqrt()				// Squareroot function
         * Math.min(x, y, z, ...)
         * Math.max(x, y, z, ...)
-        * Math.random()			                // returns a random number between 0 (inclusive) and
+        * Math.random()			        // returns a random number between 0 (inclusive) and
                                                 //  1 (exclusive)
 
         !!! This function returns a random number between min and max (both included):
