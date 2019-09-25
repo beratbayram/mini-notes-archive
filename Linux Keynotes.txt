@@ -1,3 +1,5 @@
+! Use tab size as 8 for better reading !
+
 ################################################################################## 
 LINUX KEYNOTES ------------------------------------------------------------------
 ################################################################################## 
@@ -44,7 +46,7 @@ DISK OPERATIONS
 
 dd				// Disk duplication and iso creation
 parted				// Partition manager
-ls -lha /dev/disk/by-uuid	// Find UUID of disks
+ls -la /dev/disk/by-uuid	// Find UUID of disks
 sudo fdisk -l                   // Informations about the each partition/disk
 
 ################################################################################## 
