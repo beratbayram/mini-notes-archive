@@ -2,25 +2,10 @@
 JAVASCRIPT KEYNOTES #################################################################################
 #####################################################################################################
 
-    Miscellaneous Notes -----------------------------------------------------------------------------
+    !!! The value of a variable does not reset (or cleared) when you redeclare it.
+    !!! document.location.href="http://www.w3schools.com/"; // Redirects to another page
 
-        !!! The value of a variable does not reset (or cleared) when you redeclare it.
-        !!! document.location.href="http://www.w3schools.com/"; // Redirect to another page
-
-        Hiding JS From View:
-
-            <script type="text/javascript">     // To prevent browsers which doesn't execute js from
-            <!--				// displaying code as normal text, the HTML comment
-                document.write("Hello World!");	// tag should be used to "hide" the js
-            //-->				// (It is also a part of the JS standard)
-            </script>
-
-            !!! The two forward slashes at the end of comment line (//) is the JavaScript comment symbol.
-                This prevents JavaScript from executing the --> tag.
-    
     JS Global Functions -----------------------------------------------------------------------------
-
-        !!! The constructor property returns the constructor function for all variables.
 
         * eval()				// Executes a string as if it was script code
         * isFinite()				// Determines if a value is a finite, legal number
@@ -46,7 +31,7 @@ JAVASCRIPT KEYNOTES ############################################################
 
             document.write \                    // However, you cannot break up like this
             ("Hello World!");
-        
+
     Labels ------------------------------------------------------------------------------------------
 
         labelname: {                            // The continue (with(out) a label) can only be used
@@ -66,8 +51,8 @@ TYPE CONVERSION ----------------------------------------------------------------
         typeof newVar                           // Returns "undefined"
         typeof null                             // Returns "object"
 
-    !!! Because Arrays and Dates are actually objects, typeof cannot used to check it. Another simple way
-        to check it:
+    !!! Because Arrays and Dates are actually objects, typeof cannot used to check it. Another simple
+        way to check it:
 
     function isArray(myArray) {                 | function isDate(myDate) {
         return myArray.constructor === Array;   |     return myDate.constructor === Date;
@@ -164,7 +149,7 @@ OBJECTS ------------------------------------------------------------------------
 
             * concat()				// concatenates arrays and returns a copy of them
             * pop() 				// Removes the last one and returns that
-            * push()				// Adds new ones to the end and returns the new length
+            * push()				// Adds new ones to the end and returns new length
 
             * shift() 				// Removes the first one and returns that element
             * unshift() 			// Adds new ones to the beginning and returns the
@@ -193,15 +178,14 @@ OBJECTS ------------------------------------------------------------------------
         * Math.sqrt()				// Squareroot function
         * Math.min(x, y, z, ...)
         * Math.max(x, y, z, ...)
-        * Math.random()			        // returns a random number between 0 (inclusive) and
-                                                //  1 (exclusive)
+        * Math.random()                         // returns a random number between 0 (inclusive) and
+                                                // 1 (exclusive)
 
         !!! This function returns a random number between min and max (both included):
 
             function getRandomInt(min, max) {
                 return Math.floor(Math.random() * (max - min + 1) ) + min;
             }
-
 
 #####################################################################################################
 THIS ------------------------------------------------------------------------------------------------
@@ -213,13 +197,47 @@ THIS ---------------------------------------------------------------------------
 
      *  In a function, this refers to the global object.
      *  In a function, in strict mode, this is undefined.
-    
+
      *  Methods like call(), and apply() can refer this to any object.
 
      *  Arrow functions do not bind their own this instead, they inherit it (just any other variable)
         from the parent scope
 
-        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
+#####################################################################################################
+CLASSES ---------------------------------------------------------------------------------------------
+#####################################################################################################
+
+    !!! ES6 Feature. Internet Explorer does not support classes.
+
+    class Car {
+        constructor(brand) {
+            this._carname = brand;
+        }
+        get carname() {                 // getter/setter name cannot be the same with the
+            return this._carname;       // property. Using _ to distinguish them is common
+        }
+        set carname(x) {
+            this._carname = x;
+        }
+        static hello() {                // Statics are defined on the class itself, not on
+            return "Hello";             // the prototype. That means you cannot call a static
+        }                               // method on the object, but on the class directly.
+    }
+
+    class Model extends Car {           // Inheritance
+        constructor(brand, mod) {       // By calling the super() in the constructor, we call
+                super(brand);           // the parent's constructor method and gets access to
+                this.model = mod;       // the parent's properties and methods.
+        }
+        show() {
+                return this._carname + ', it is a ' + this.model;
+        }
+    }
+
+    mycar = new Car("Ford");
+
+    document.getElementById("demo").innerHTML = mycar.carname;  // use of getter
+    mycar.carname = "Volvo";                                    // use of setter
 
 #####################################################################################################
 EVENTS ----------------------------------------------------------------------------------------------
@@ -233,7 +251,7 @@ EVENTS -------------------------------------------------------------------------
         * onMouseOver and onMouseOut
         * ...
 
-    -----------------------------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------------------
 
     onSubmit
 
@@ -244,8 +262,31 @@ EVENTS -------------------------------------------------------------------------
 
         <form method="post" action="xxx.htm" onsubmit="return checkForm()">
 
-    -----------------------------------------------------------------------------------------------------
 
-    ***
-    To be continued
-    ***
+    Miscellaneous Notes -----------------------------------------------------------------------------
+
+#####################################################################################################
+BEST PRACTICES & COMMON MISTAKES --------------------------------------------------------------------
+#####################################################################################################
+
+    !!! Do not start names with a $ sign. It will put you in conflict with many JS library names
+    !!! Avoid global variables, with, new (if possible), == and eval()
+    !!! Accessing the HTML DOM is very slow. If you expect to access a DOM element several times,
+        access it once and use it as a local variable.
+
+    Hiding JS From View:
+
+        <script type="text/javascript">         // To prevent browsers which doesn't execute js from
+        <!--				        // displaying code as normal text, the HTML comment
+        document.write("Hello World!");	        // tag should be used to "hide" the js
+        //-->				        // (It is also a part of the JS standard)
+        </script>
+
+        !!! The two forward slashes at the end of comment line (//) is the JavaScript comment symbol.
+        This prevents JavaScript from executing the --> tag.
+        !!! Just use separate .js file instead.
+
+    Misunderstanding Floats ------------------------------------------------------------------------
+
+        !!! 0.1 + 0.2 === 0.30000000000000004 not 0.3 . JS have difficulties with precise floating
+             point values. Instead use it like that (0.1 * 10 + 0.2 * 10) / 10.
