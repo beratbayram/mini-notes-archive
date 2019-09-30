@@ -82,112 +82,140 @@ COMPARISON ---------------------------------------------------------------------
 OBJECTS ---------------------------------------------------------------------------------------------
 #####################################################################################################
 
-        for (let key in object/array) {         // uses keys
-            console.log(i);                     // for arrays keys are index numbers
-            console.log(obje[i])                // might run non-sequential !!!
-        }                                       // (not recommended for arrays)
+            !!! The delete keyword deletes a property from an object and is designed to be used on
+                properties. It has no effect on variables or functions
+            !!! The delete keyword does not delete inherited properties, but if you delete a 
+                prototype property, it will affect all objects inherited from the prototype
+            !!! var objA = objB; JS objects are addressed by reference, not by value. objB is also
+                objA, not just a copy of it. Changes to one will reflect to other.
 
-        for (let iterator of array) {           // uses iterators
-            console.log(i);                     // doesn't work on objects
-        }
+        Constructors---------------------------------------------------------------------------------
 
-    Number Object -----------------------------------------------------------------------------------
+            function Person(first, last, age) { // Objects of the same type are created by calling
+                this.firstName = first;         // the constructor function with the new keyword
+                this.lastName = last;
+                this.age = age;
+                this.changeLastName = function (name) {
+                    this.lastName = name;
+                };
+            }
 
-        var numObj = new Number(num)
+        Prototypes ----------------------------------------------------------------------------------
 
-        * toExponential(x) 		        // Converts a number into an exponential notation
-        * toFixed(x) 				// Formats a number with x numbers of digits after
-                                                   the decimal point
-        * toPrecision(x) 			// Formats a number to x length
-        * toString() 				// Converts a Number object to a string
-        * valueOf() 			        // Returns the primitive value of a Number object
+            Prototypes allows you to add new properties to existing object of that constructor.
+            
+            Person.prototype.nationality = "English";
+        
+        Loops ---------------------------------------------------------------------------------------
 
-    String Object -----------------------------------------------------------------------------------
+            for (let key in object/array) {     // uses keys
+                console.log(i);                 // for arrays keys are index numbers
+                console.log(obje[i])            // might run non-sequential !!!
+            }                                   // (not recommended for arrays)
 
-        * indexOf(x) 				// Returns the position of the first found x
-        * lastIndexOf(x) 			// Returns the position of the last found x
-        * match()				// Searches for a regex then returns the matches
-        * replace(x)				// match() it then replace them with x
-        * search() 				// match() it but instead return the position
+            for (let iterator of array) {       // uses iterators
+                console.log(i);                 // doesn't work on objects
+            }
 
-        * slice()				// Extracts a part of a string and returns that
-        * split()				// Splits a string into an array of substrings
-        * substring()				// Extracts the characters
+    BUILT-IN OBJECTS ################################################################################
+    
+        Number --------------------------------------------------------------------------------------
+
+            var numObj = new Number(num)
+
+            * toExponential(x) 		        // Converts a number into an exponential notation
+            * toFixed(x) 			// Formats a number with x numbers of digits after
+                                                    the decimal point
+            * toPrecision(x) 			// Formats a number to x length
+            * toString() 			// Converts a Number object to a string
+            * valueOf() 			// Returns the primitive value of a Number object
+
+        String --------------------------------------------------------------------------------------
+
+            * indexOf(x) 			// Returns the position of the first found x
+            * lastIndexOf(x) 			// Returns the position of the last found x
+            * match()				// Searches for a regex then returns the matches
+            * replace(x)			// match() it then replace them with x
+            * search() 				// match() it but instead return the position
+
+            * slice()				// Extracts a part of a string and returns that
+            * split()				// Splits a string into an array of substrings
+            * substring()			// Extracts the characters
                                                    (between two specified indices)
-        * substr()				// Extracts the characters
-                                                   (beginning at a specified start position and
-                                                   through the specified number of character)
-        * toLowerCase()
-        * toUpperCase()
-        * valueOf()			        // Returns the primitive value
+            * substr()				// Extracts the characters
+                                                    (beginning at a specified start position and
+                                                    through the specified number of character)
+            * toLowerCase()
+            * toUpperCase()
+            * valueOf()			        // Returns the primitive value
 
-        !!! regex: regular expression (https://www.w3schools.com/js/js_regexp.asp)
+            !!! regex: regular expression (https://www.w3schools.com/js/js_regexp.asp)
 
-    Date Object -------------------------------------------------------------------------------------
+        Date ----------------------------------------------------------------------------------------
 
-        There are four ways of instantiating a date:
+            There are four ways of instantiating a date:
 
-            * new Date()		        // current date and time
-            * new Date(milliseconds) 	        // milliseconds since 1970/01/01
-            * new Date(dateString)
-            * new Date(year, month, day, hours, minutes, seconds, milliseconds)
+                * new Date()		        // current date and time
+                * new Date(milliseconds) 	// milliseconds since 1970/01/01
+                * new Date(dateString)
+                * new Date(year, month, day, hours, minutes, seconds, milliseconds)
 
-        !!! Date objects can be simply compared with comparison operators like this "myDate>today"
+            !!! Date objects can be simply compared with comparison operators like this "myDate>now"
 
-        ex: myDate.setDate(myDate.getDate()+5)	// 5 days into the future
+            ex: myDate.setDate(myDate.getDate()+5)	// 5 days into the future
 
-    Array Object ------------------------------------------------------------------------------------
+        Array ---------------------------------------------------------------------------------------
 
-        An array can be defined in three ways:
+            An array can be defined in three ways:
 
-            1) var myCars=new Array();          // regular array (add an optional integer
-               myCars[0]="Saab";	        // argument to control array's size)
-               myCars[1]="Volvo";
-               myCars[2]="BMW";
-            2) var myCars=new Array("Saab","Volvo","BMW");      // condensed array
-            3) var myCars=["Saab","Volvo","BMW"];               // literal array
+                1) var myCars=new Array();      // regular array (add an optional integer
+                myCars[0]="Saab";	        // argument to control array's size)
+                myCars[1]="Volvo";
+                myCars[2]="BMW";
+                2) var myCars=new Array("Saab","Volvo","BMW");      // condensed array
+                3) var myCars=["Saab","Volvo","BMW"];               // literal array
 
-        Member Functions:
+            Member Functions:
 
-            * concat()				// concatenates arrays and returns a copy of them
-            * pop() 				// Removes the last one and returns that
-            * push()				// Adds new ones to the end and returns new length
+                * concat()			// concatenates arrays and returns a copy of them
+                * pop() 			// Removes the last one and returns that
+                * push()			// Adds new ones to the end and returns new length
 
-            * shift() 				// Removes the first one and returns that element
-            * unshift() 			// Adds new ones to the beginning and returns the
+                * shift() 			// Removes the first one and returns that element
+                * unshift() 			// Adds new ones to the beginning and returns the
                                                    new length
 
-            * reverse() 			// Reverses the order of the elements in an array
-            * slice() 				// Selects a part of it, and returns that
-            * sort() 				// Sorts the elements of an array
-            * splice() 				// Adds/Removes elements from an array
+                * reverse() 			// Reverses the order of the elements in an array
+                * slice() 			// Selects a part of it, and returns that
+                * sort() 			// Sorts the elements of an array
+                * splice() 			// Adds/Removes elements from an array
 
-            * valueOf()				// Returns the primitive value
-            * toString()
+                * valueOf()			// Returns the primitive value
+                * toString()
 
-        !!! To add completely new key-value pair to an existing object, just use it as if it was
-        there beforehand ( ex: obj.newKey=newValue )
+            !!! To add completely new key-value pair to an existing object, just use it as if it was
+            there beforehand ( ex: obj.newKey=newValue )
 
-    Math Object -------------------------------------------------------------------------------------
+        Math ----------------------------------------------------------------------------------------
 
-        * Math.E ,Math.PI
+            * Math.E ,Math.PI
 
-        * Math.round()				// Returns nearest int
-        * Math.ceil()   			// Returns rounded up int value
-        * Math.floor()				// Returns rounded down int value
+            * Math.round()			// Returns nearest int
+            * Math.ceil()   			// Returns rounded up int value
+            * Math.floor()			// Returns rounded down int value
 
-        * Math.pow()				// Power function
-        * Math.sqrt()				// Squareroot function
-        * Math.min(x, y, z, ...)
-        * Math.max(x, y, z, ...)
-        * Math.random()                         // returns a random number between 0 (inclusive) and
+            * Math.pow()			// Power function
+            * Math.sqrt()			// Squareroot function
+            * Math.min(x, y, z, ...)
+            * Math.max(x, y, z, ...)
+            * Math.random()                     // returns a random number between 0 (inclusive) and
                                                 // 1 (exclusive)
 
-        !!! This function returns a random number between min and max (both included):
+            !!! This function returns a random number between min and max (both included):
 
-            function getRandomInt(min, max) {
-                return Math.floor(Math.random() * (max - min + 1) ) + min;
-            }
+                function getRandomInt(min, max) {
+                    return Math.floor(Math.random() * (max - min + 1) ) + min;
+                }
 
 #####################################################################################################
 THIS ------------------------------------------------------------------------------------------------
@@ -258,8 +286,8 @@ EVENTS -------------------------------------------------------------------------
     onSubmit
 
         The onSubmit event is used to validate ALL form fields before submitting it.
-        The checkForm() function will be called when the user clicks the submit button in the form. The
-        function checkForm() returns either true or false. If it returns true the
+        The checkForm() function will be called when the user clicks the submit button in the form.
+        The function checkForm() returns either true or false. If it returns true the
         form will be submitted, otherwise the submit will be cancelled:
 
         <form method="post" action="xxx.htm" onsubmit="return checkForm()">
