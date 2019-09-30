@@ -21,6 +21,8 @@ cd -				// Go to previous location
 ls				// -l for detailed, -la for hidden files,
                                 // -S sort by size, -F sort by type, -lt sort by
                                 // date, -lsh show sizes in human-readable form
+pwd                             // Show current location (-L for logical, -P for
+                                   physical)
 
 umask				// Changing default permissions for new ones
 chattr				// Blocking all operations to a file (even for su)
@@ -38,7 +40,8 @@ xkill				// Changes the mouse to a skull which kills any
                                    window it clicks
 top				// Shows active processes
 CTRL-Z + fg + bg + jobs		// Background job management
-service --status-all		// Show all services with their statuses 	
+service --status-all		// Show all services with their statuses
+force close                     // killal -9 <ID> 	
 
 ##################################################################################
 
@@ -58,5 +61,6 @@ MISCELLANEOUS
 /etc/profile			// Commands to be executed at startup
 tr				// Practical text modifications
 sed				// Insanely powerful text changer
+echo "<sha value> *<file>" | shasum -a <1/256> --check // SHA check
  
-################################################################################## 
+##################################################################################
