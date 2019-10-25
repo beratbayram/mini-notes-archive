@@ -11,10 +11,8 @@ JAVASCRIPT KEYNOTES ############################################################
 
         * eval()				// Executes a string as if it was script code
         * isFinite()				// Determines if a value is a finite, legal number
-        * Number()				// Converts an object's value to a number
         * parseFloat()				// Parses a string and returns a float
         * parseInt()				// Parses a string and returns an integer
-        * String()				// Converts an object's value to a string
 
         * setTimeOut(func,x)			// Wait x ms then run func
         * setInterval(func,x)			// Call func at every x ms
@@ -41,11 +39,17 @@ JAVASCRIPT KEYNOTES ############################################################
             if(...) break labelname
             ...                                 // The break; without a label reference, can only be
             }                                   // used to jump out of a loop or a switch but with a
-                                                // label, can be used to jump out of any code block
+        outer: if (...) {...}                   // label, can be used to jump out of any code block
 
 #####################################################################################################
-TYPE CONVERSION -------------------------------------------------------------------------------------
+DATA TYPES ------------------------------------------------------------------------------------------
 #####################################################################################################
+
+     *  +x equals to Number(x)
+     *  undefined + 1 === null
+     *  +null === 0, +"" === 0, +undefined === NaN;
+     *  Everything without a "proper value" is false: 0, -0, "", undefined, null, NaN
+        (but " " or "0" is true)
 
     Tricky Data Types:
         typeof NaN                              // Returns "number"
@@ -60,12 +64,15 @@ TYPE CONVERSION ----------------------------------------------------------------
         return myArray.constructor === Array;   |     return myDate.constructor === Date;
     }                                           | }
 
+    !!! 0.1 + 0.2 === 0.30000000000000004 not 0.3 . JS have difficulties with precise floating
+        point values. Instead use it like that (0.1 * 10 + 0.2 * 10) / 10.
+
 #####################################################################################################
 COMPARISON ------------------------------------------------------------------------------------------
 #####################################################################################################
 
-     *  Everything without a "proper value" is false: 0, -0, "", undefined, null, NaN
      *  === means equal value AND equal type whereas, !== means not equal value OR not equal type
+     *  undefined only equals null, undefined and no other value.
      *  Comparing two JavaScript objects will always return false unless they come from same origin.
      *  When comparing a string with a number, JavaScript will convert the string to a number when
         doing the comparison. An empty string converts to 0. A non-numeric string converts to NaN.
@@ -73,10 +80,8 @@ COMPARISON ---------------------------------------------------------------------
      *  When comparing two strings, "2" will be greater than "12", because (alphabetically) 1 is
         less than 2.
 
-    Switch-case:
-
-        !!! Switch cases use strict comparison (===).
-        !!! If multiple cases matches a case value, the first case is selected.
+    !!! Only exp can be used in ternary operator. (e.g. break/continue aren’t allowed.)
+    !!! Switch cases use strict comparison (===).
 
 #####################################################################################################
 OBJECTS ---------------------------------------------------------------------------------------------
@@ -84,17 +89,33 @@ OBJECTS ------------------------------------------------------------------------
 
             !!! The delete keyword deletes a property from an object and is designed to be used on
                 properties. It has no effect on variables or functions
+                (delete user.name)
             !!! The delete keyword does not delete inherited properties, but if you delete a 
                 prototype property, it will affect all objects inherited from the prototype
             !!! var objA = objB; JS objects are addressed by reference, not by value. objB is also
                 objA, not just a copy of it. Changes to one will reflect to other.
 
+             *  Computed properties:
+
+                    let fruit = prompt("Which fruit to buy?", "apple");
+    
+                    let bag = {                 // Property name is taken from a variable
+                    [fruit]: 5;                 // bag == {apple:5} if prompt is "apple"
+                    };
+                
+             * Property value shorthand:
+
+                    let user = {
+                      name,                     // same as name:name
+                      age: 30
+                    };
         Constructors---------------------------------------------------------------------------------
 
             function Person(first, last, age) { // Objects of the same type are created by calling
                 this.firstName = first;         // the constructor function with the new keyword
                 this.lastName = last;
-                this.age = age;
+                this.age = age;                 // Properties can be multi-word but quotes must be
+                this."work address" = null;     // used. For access, ali["work address"] not just dot
                 this.changeLastName = function (name) {
                     this.lastName = name;
                 };
@@ -105,11 +126,11 @@ OBJECTS ------------------------------------------------------------------------
             Prototypes allows you to add new properties to existing object of that constructor.
             
             Person.prototype.nationality = "English";
-        
+
         Loops ---------------------------------------------------------------------------------------
 
             for (let key in object/array) {     // uses keys
-                console.log(i);                 // for arrays keys are index numbers
+                console.log(i);                 // (for arrays keys are index numbers)
                 console.log(obje[i])            // might run non-sequential !!!
             }                                   // (not recommended for arrays)
 
@@ -303,20 +324,17 @@ BEST PRACTICES & COMMON MISTAKES -----------------------------------------------
     !!! Avoid global variables, with, new (if possible), == and eval()
     !!! Accessing the HTML DOM is very slow. If you expect to access a DOM element several times,
         access it once and use it as a local variable.
+    !!! Don’t use comparisons with a variable which may be null/undefined, unless you’re really sure
+        of what you’re doing. If a variable can have these values, check for them separately.
 
-    Hiding JS From View:
+    let message = (age < 3) ? 'Hi, baby!' :
+                  (age < 18) ? 'Hello!' :
+                  (age < 100) ? 'Greetings!' :
+                  'What an unusual age!';
 
-        <script type="text/javascript">         // To prevent browsers which doesn't execute js from
-        <!--				        // displaying code as normal text, the HTML comment
-        document.write("Hello World!");	        // tag should be used to "hide" the js
-        //-->				        // (It is also a part of the JS standard)
-        </script>
+#####################################################################################################
+SOURCES ---------------------------------------------------------------------------------------------
+#####################################################################################################
 
-        !!! The two forward slashes at the end of comment line (//) is the JavaScript comment symbol.
-        This prevents JavaScript from executing the --> tag.
-        !!! Just use separate .js file instead.
-
-    Misunderstanding Floats ------------------------------------------------------------------------
-
-        !!! 0.1 + 0.2 === 0.30000000000000004 not 0.3 . JS have difficulties with precise floating
-             point values. Instead use it like that (0.1 * 10 + 0.2 * 10) / 10.
+    1. https://www.w3schools.com/js/
+    2. https://javascript.info
