@@ -152,7 +152,33 @@ OBJECTS ------------------------------------------------------------------------
         for (let iterator of array) {       // uses iterators
             console.log(i);                 // doesn't work on objects
         }
+
+    Destructuring -----------------------------------------------------------------------------------
         
+        * Destructuring assignment is a special syntax that allows us to “unpack” arrays or objects 
+          into a bunch of variables. It can also be nested.
+
+        * Array Destructuring:
+
+            * Array itself is not modified. Works with any iterable, not just arrays;
+
+            let [name = "default", surname, ...rest] = ["Ilya", "Kantor"];
+            alert(firstName); // Ilya
+            alert(surname);  // Kantor
+            alert(rest); // <empty array>
+            //or
+            let [firstName, surname] = "Ilya Kantor".split(' ');
+
+        * Object Destructuring:
+            // { sourceProperty: targetVariable }, order is not important
+            let {width: w, title = "default", ...rest} =  { title: "Menu", width: 100, height: 200};
+
+            * no let problem:
+              let {title, width, height} = {title: "Menu", width: 200, height: 100}; // OK
+              ({title, width, height} = {title: "Menu", width: 200, height: 100});   // OK
+              {title, width, height} = {title: "Menu", width: 200, height: 100};
+              // confuses with code block curly braces 
+
 #####################################################################################################
 BUILT-INS -------------------------------------------------------------------------------------------
 #####################################################################################################
