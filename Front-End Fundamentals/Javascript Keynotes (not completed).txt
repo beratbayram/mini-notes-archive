@@ -180,6 +180,37 @@ OBJECTS ------------------------------------------------------------------------
               // confuses with code block curly braces 
 
 #####################################################################################################
+FUNCTIONS -------------------------------------------------------------------------------------------
+#####################################################################################################
+
+    THE ... OPERATOR ################################################################################
+
+        Rest Parameters -----------------------------------------------------------------------------
+
+            function showName(name, surname, ...titles) {
+              alert( name + ' ' + surname );    // Julius Caesar, the rest go into titles array
+              alert( titles[0] );               // Consul
+              alert( titles[1] );               // Imperator
+              alert( titles.length );           // 2
+            }
+            showName("Julius", "Caesar", "Consul", "Imperator");
+
+            !!! Rest parameters must be at the end.
+
+        Spread Operator -----------------------------------------------------------------------------
+
+            *  It “expands” any iterable object into the list of arguments.
+
+                let arr1 = [1, -2, 3, 4];
+                let arr2 = [8, 3, -8, 1];
+                alert( Math.max(1, ...arr1, 2, ...arr2, 25) ); // 25 
+
+                let merge = [...arr1,...arr2];  // can also be used for merging 
+                alert( [...str] );              // H,e,l,l,o (any iterable is OK)
+
+            * [...iter] can be used to convert iterables to arrays, but Array.from is more universal
+
+#####################################################################################################
 BUILT-INS -------------------------------------------------------------------------------------------
 #####################################################################################################
 
