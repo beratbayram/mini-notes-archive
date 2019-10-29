@@ -45,11 +45,12 @@ JAVASCRIPT KEYNOTES ############################################################
 DATA TYPES ------------------------------------------------------------------------------------------
 #####################################################################################################
 
-     *  +x equals to Number(x)
-     *  undefined + 1 === null
-     *  +null === 0, +"" === 0, +undefined === NaN;
-     *  Everything without a "proper value" is false: 0, -0, "", undefined, null, NaN
-        (but " " or "0" is true)
+     *  There are 6 primitive types: string, number, boolean, symbol, null and undefined
+
+     *  Primitives are single values without any extra info. The language allows access to methods 
+     and properties of them. In order for that to work, a special “object wrapper” that provides the
+     extra functionality is created, and then is destroyed. (Note: (123456).toString(2) or 
+     123456..toString(2) JS confuses float dot with object dot)
 
     Tricky Data Types:
         typeof NaN                              // Returns "number"
@@ -71,12 +72,18 @@ DATA TYPES ---------------------------------------------------------------------
 COMPARISON ------------------------------------------------------------------------------------------
 #####################################################################################################
 
+     *  +x equals to Number(x)
+     *  undefined + 1 === null
+     *  +null === 0, +"" === 0, +undefined === NaN;
+     *  Everything without a "proper value" is false: 0, -0, "", undefined, null, NaN
+        (but " " or "0" is true)
+
      *  === means equal value AND equal type whereas, !== means not equal value OR not equal type
      *  undefined only equals null, undefined and no other value.
      *  Comparing two JavaScript objects will always return false unless they come from same origin.
      *  When comparing a string with a number, JavaScript will convert the string to a number when
         doing the comparison. An empty string converts to 0. A non-numeric string converts to NaN.
-     *  Any comparison with NaN is always false.
+     *  Any comparison with NaN is always false, including itself.
      *  When comparing two strings, "2" will be greater than "12", because (alphabetically) 1 is
         less than 2.
 
@@ -108,15 +115,16 @@ OBJECTS ------------------------------------------------------------------------
                     };
         Constructors---------------------------------------------------------------------------------
 
-            function Person(first, last, age) { // Objects of the same type are created by calling
-                this.firstName = first;         // the constructor function with the new keyword
-                this.lastName = last;
-                this.age = age;                 // Properties can be multi-word but quotes must be
-                this."work address" = null;     // used. For access, ali["work address"] not just dot
-                this.changeLastName = function (name) {
-                    this.lastName = name;
-                };
-            }
+             *  Constructors should start with a capital letter and they can be used to make multiple
+            similar objects with the "new" keyword.
+
+                function User(name) {
+                    // this = {}; (implicitly)
+                    this.name = name;
+                    this.age = age;             // Properties can be multi-word but quotes must be
+                    this."work address" = null; // used. For access, ali["work address"]
+                    // return this; (implicitly)
+                }
 
         Prototypes ----------------------------------------------------------------------------------
 
@@ -168,8 +176,6 @@ OBJECTS ------------------------------------------------------------------------
     
         Number --------------------------------------------------------------------------------------
 
-            var numObj = new Number(num)
-
             * toExponential(x) 		        // Converts a number into an exponential notation
             * toFixed(x) 			// Formats a number with x numbers of digits after
                                                     the decimal point
@@ -181,22 +187,20 @@ OBJECTS ------------------------------------------------------------------------
 
             * indexOf(x) 			// Returns the position of the first found x
             * lastIndexOf(x) 			// Returns the position of the last found x
+            * includes()
             * match()				// Searches for a regex then returns the matches
             * replace(x)			// match() it then replace them with x
             * search() 				// match() it but instead return the position
 
             * slice()				// Extracts a part of a string and returns that
             * split()				// Splits a string into an array of substrings
-            * substring()			// Extracts the characters
-                                                   (between two specified indices)
-            * substr()				// Extracts the characters
-                                                    (beginning at a specified start position and
-                                                    through the specified number of character)
+
             * toLowerCase()
             * toUpperCase()
             * valueOf()			        // Returns the primitive value
 
             !!! regex: regular expression (https://www.w3schools.com/js/js_regexp.asp)
+            !!! "\u00A9" === copyright mark
 
         Date ----------------------------------------------------------------------------------------
 
@@ -213,15 +217,6 @@ OBJECTS ------------------------------------------------------------------------
 
         Array ---------------------------------------------------------------------------------------
 
-            An array can be defined in three ways:
-
-                1) var myCars=new Array();      // regular array (add an optional integer
-                myCars[0]="Saab";	        // argument to control array's size)
-                myCars[1]="Volvo";
-                myCars[2]="BMW";
-                2) var myCars=new Array("Saab","Volvo","BMW");      // condensed array
-                3) var myCars=["Saab","Volvo","BMW"];               // literal array
-
             Member Functions:
 
                 * concat()			// concatenates arrays and returns a copy of them
@@ -234,11 +229,10 @@ OBJECTS ------------------------------------------------------------------------
 
                 * reverse() 			// Reverses the order of the elements in an array
                 * slice() 			// Selects a part of it, and returns that
-                * sort() 			// Sorts the elements of an array
+                * sort(fn) 			// Sorts items as strings by default!
                 * splice() 			// Adds/Removes elements from an array
 
-                * valueOf()			// Returns the primitive value
-                * toString()
+            !!! arrayOfReturns = arr.map(function(item, index, array) { // returns the new value });
 
             !!! To add completely new key-value pair to an existing object, just use it as if it was
             there beforehand ( ex: obj.newKey=newValue )
@@ -253,8 +247,7 @@ OBJECTS ------------------------------------------------------------------------
 
             * Math.pow()			// Power function
             * Math.sqrt()			// Squareroot function
-            * Math.min(x, y, z, ...)
-            * Math.max(x, y, z, ...)
+            * Math.min(x, y, z, ...) or Math.max(x, y, z, ...)
             * Math.random()                     // returns a random number between 0 (inclusive) and
                                                 // 1 (exclusive)
 
