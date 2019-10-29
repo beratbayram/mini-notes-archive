@@ -78,84 +78,81 @@ COMPARISON ---------------------------------------------------------------------
 #####################################################################################################
 OBJECTS ---------------------------------------------------------------------------------------------
 #####################################################################################################
-
-            !!! The delete keyword deletes a property from an object and is designed to be used on
-                properties. It has no effect on variables or functions
-                (delete user.name)
-            !!! The delete keyword does not delete inherited properties, but if you delete a 
-                prototype property, it will affect all objects inherited from the prototype
-            !!! var objA = objB; JS objects are addressed by reference, not by value. objB is also
-                objA, not just a copy of it. Changes to one will reflect to other.
-
-             *  Computed properties:
-                    let fruit = prompt("Which fruit to buy?", "apple");
-    
-                    let bag = {                 // Property name is taken from a variable
-                    [fruit]: 5;                 // bag == {apple:5} if prompt is "apple"
-                    };
-             *  Property value shorthand:
-                    let user = {
-                      name,                     // same as name:name
-                      age: 30
-                    };
-        Constructors---------------------------------------------------------------------------------
-
-             *  Constructors should start with a capital letter and they can be used to make multiple
-            similar objects with the "new" keyword.
-
-                function User(name) {
-                    // this = {}; (implicitly)
-                    this.name = name;
-                    this.age = age;             // Properties can be multi-word but quotes must be
-                    this."work address" = null; // used. For access, ali["work address"]
-                    // return this; (implicitly)
-                }
-
-        Prototypes ----------------------------------------------------------------------------------
-
-             *  Prototypes allows you to add new properties to existing object of that constructor.
-                Person.prototype.nationality = "English";
-
-	Symbols -------------------------------------------------------------------------------------
-
-            let user = { ... };			// Belongs to another code. We dont know what's in it
-	    let id = Symbol("description");	// Create a new symbol. (Description has no meanning)
-	    user[id] = 1;			// Add or set it with [].
-	    alert( user[id] ); 			// Access the data using the symbol as the key
-    
-	     *  As user belongs to another code. Freely adding new stuff is unsafe. But a symbol cant
-	     be accessed accidentally, the third-party code probably won’t even see it, so it is
-	     probably all right to do. Symbols are always unique, except for "Global Symbol"s.
-
-	    !!! for..in , object.keys() intentionally dont see them but object.assign also copies them.
-
-	     *  Global Symbols:
-	             * Symbols inside the registry are called global symbols. They application-wide,
-	            accessible everywhere in the code – that’s what they are for.
-    
-	            let id = Symbol.for("id"); 	// Read from the registry if not exist, it is created
-                    let id2 = Symbol.for("id");	// Read it again (maybe from another part of the code)
-		    alert( id === id2 ); 	// the same symbol
-
-        This ----------------------------------------------------------------------------------------
         
-             * The value of this is the object “before dot”, the one used to call the method.
-	     * If not bound; it equals to undefined with "use strict"
-             * Methods like call(), and apply() can refer this to any object.
+        !!! The delete keyword deletes a property from an object and is designed to be used on
+            properties. It has no effect on variables or functions (delete user.name)    
+        !!! The delete keyword does not delete inherited properties, but if you delete a 
+            prototype property, it will affect all objects inherited from the prototype
+        !!! var objA = objB; JS objects are addressed by reference, not by value. objB is also
+            objA, not just a copy of it. Changes to one, will reflect to other. 
+               
+        * Computed properties:
+            let fruit = prompt("Which fruit to buy?", "apple");        
+            let bag = {                         // Property name is taken from a variable
+            [fruit]: 5;                         // bag == {apple:5} if prompt is "apple"
+            };
+        * Property value shorthand:
+            let user = {
+              name,                             // same as name:name
+              age: 30
+            };
 
-             * Arrow functions do not bind their own this instead, they inherit it (just like any 
-	       other variable) from the parent scope
+    Constructors-------------------------------------------------------------------------------------
 
-        Loops ---------------------------------------------------------------------------------------
+        * Constructors should start with a capital letter and they can be used to make multiple
+        similar objects with the "new" keyword.
 
-            for (let key in object/array) {     // uses keys
-                console.log(i);                 // (for arrays keys are index numbers)
-                console.log(obje[i])            // might run non-sequential !!!
-            }                                   // (not recommended for arrays)
-
-            for (let iterator of array) {       // uses iterators
-                console.log(i);                 // doesn't work on objects
+            function User(name) {
+                // this = {}; (implicitly)
+                this.name = name;
+                this.age = age;             // Properties can be multi-word but quotes must be
+                this."work address" = null; // used. For access, ali["work address"]
+                // return this; (implicitly)
             }
+
+    Prototypes --------------------------------------------------------------------------------------
+
+        * Prototypes allows you to add new properties to existing object of that constructor.
+          Person.prototype.nationality = "English";
+
+    Symbols -----------------------------------------------------------------------------------------
+        
+        let user = { ... };		    // Belongs to another code. We dont know what's in it
+        let id = Symbol("description");	    // Create a new symbol. (Description has no meanning)
+        user[id] = 1;			    // Add or set it with [].
+        alert( user[id] ); 		    // Access the data using the symbol as the key
+       
+        * As "user" belongs to another code. Freely adding new stuff is unsafe. But a symbol cant
+          be accessed accidentally, the third-party code probably won’t even see it, so it is
+          probably all right to do. Symbols are always unique, except for "Global Symbol"s.
+
+        !!! for..in , object.keys() intentionally dont see them but object.assign also copies them.
+        
+        * Global Symbols: Symbols inside the registry are called global symbols. They are
+        application-wide, accessible everywhere in the code – that’s what they are for.
+       
+            let id = Symbol.for("id");      // Read from the registry if not exist, it is created
+            let id2 = Symbol.for("id");     // Read it again (maybe from another part of the code)
+            alert( id === id2 );            // the same symbol
+
+    This --------------------------------------------------------------------------------------------
+    
+        * The value of this is the object “before dot”, the one used to call the method.
+        * If not bound; it equals to undefined with "use strict"
+        * Methods like call(), and apply() can refer this to any object.
+        * Arrow functions do not bind their own this instead, they inherit it (just like any 
+          other variable) from the parent scope
+
+    Loops -------------------------------------------------------------------------------------------
+
+        for (let key in object/array) {     // uses keys (for arrays keys are index numbers)
+            console.log(i);                 // (not recommended for arrays)
+            console.log(obje[i])
+        }
+        for (let iterator of array) {       // uses iterators
+            console.log(i);                 // doesn't work on objects
+        }
+        
 #####################################################################################################
 BUILT-INS -------------------------------------------------------------------------------------------
 #####################################################################################################
