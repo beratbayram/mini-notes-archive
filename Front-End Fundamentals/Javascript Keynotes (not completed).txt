@@ -202,19 +202,6 @@ OBJECTS ------------------------------------------------------------------------
             !!! regex: regular expression (https://www.w3schools.com/js/js_regexp.asp)
             !!! "\u00A9" === copyright mark
 
-        Date ----------------------------------------------------------------------------------------
-
-            There are four ways of instantiating a date:
-
-                * new Date()		        // current date and time
-                * new Date(milliseconds) 	// milliseconds since 1970/01/01
-                * new Date(dateString)
-                * new Date(year, month, day, hours, minutes, seconds, milliseconds)
-
-            !!! Date objects can be simply compared with comparison operators like this "myDate>now"
-
-            ex: myDate.setDate(myDate.getDate()+5)	// 5 days into the future
-
         Array ---------------------------------------------------------------------------------------
 
             Member Functions:
@@ -237,6 +224,8 @@ OBJECTS ------------------------------------------------------------------------
             !!! To add completely new key-value pair to an existing object, just use it as if it was
             there beforehand ( ex: obj.newKey=newValue )
 
+    BUILT-IN LIBRARIES ##############################################################################
+
         Math ----------------------------------------------------------------------------------------
 
             * Math.E ,Math.PI
@@ -256,6 +245,51 @@ OBJECTS ------------------------------------------------------------------------
                 function getRandomInt(min, max) {
                     return Math.floor(Math.random() * (max - min + 1) ) + min;
                 }
+        
+        Date ----------------------------------------------------------------------------------------
+
+            There are four ways of instantiating a date:
+
+                * new Date()		        // current date and time
+                * new Date(milliseconds) 	// milliseconds since 1970/01/01
+                * new Date(dateString)
+                * new Date(year, month, day, hours, minutes, seconds, milliseconds)
+
+            !!! Date objects can be simply compared with comparison operators like this "myDate>now"
+
+            ex: myDate.setDate(myDate.getDate()+5)	// 5 days into the future
+
+        Map -----------------------------------------------------------------------------------------
+
+            *  Map – is a collection of keyed values.
+            *  Methods and properties:
+                * new Map([iterable])           // creates the map, with optional iterable
+                * map.set(key, value)           // stores the value by the key (chainable)
+                * map.get(key)                  // returns the value by the key or undefined
+                * map.has(key)                  // returns true if the key exists, false otherwise.
+                * map.delete(key)               // removes the value by the key.
+                * map.clear()                   // removes everything from the map.
+                * map.size                      // returns the current element count.
+                * map.keys(), .values() ,.entries() // returns iterables
+            * Preserves key types, objects can also be keys.
+
+        Set -----------------------------------------------------------------------------------------
+
+            * Set – is a collection of unique values.
+            * Methods and properties:
+                * new Set([iterable])           // creates the set, with optional iterable
+                * set.add(value)                // adds a value (does nothing if exists)(chainable)
+                * set.delete(value)             // removes the value, returns true if value existed
+                                                // at the moment of the call, otherwise false.
+                * set.has(value)                // returns true if the value exists in the set
+                * set.clear()                   // removes everything from the set.
+                * set.size                      //  returns the current element count.
+
+        !!! Iteration over Map and Set is always in the insertion order and elements can’t be 
+            reordered nor directly get an element by its number.
+        !!! WeakMap and WeakSet are used as “secondary” data structures. Once the object is removed
+            from the main storage, if it is only found as the key of WeakMap or in a WeakSet, it will
+            be cleaned up automatically.
 
 #####################################################################################################
 CLASSES ---------------------------------------------------------------------------------------------
