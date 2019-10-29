@@ -7,21 +7,6 @@ JAVASCRIPT KEYNOTES ############################################################
     !!! The value of a variable does not reset (or cleared) when you redeclare it.
     !!! document.location.href="http://www.w3schools.com/"; // Redirects to another page
 
-    JS Global Functions -----------------------------------------------------------------------------
-
-        * eval()				// Executes a string as if it was script code
-        * isFinite()				// Determines if a value is a finite, legal number
-        * parseFloat()				// Parses a string and returns a float
-        * parseInt()				// Parses a string and returns an integer
-
-        * setTimeOut(func,x)			// Wait x ms then run func
-        * setInterval(func,x)			// Call func at every x ms
-
-        Popup boxes:
-            * Alert("sometext")
-            * Confirm("sometext"):boolean
-            * Prompt("sometext","defaultvalue"):inputString / null.
-
     Breaking Up A Code Line -------------------------------------------------------------------------
 
         You can break up a code line within a text string with a backslash.
@@ -171,8 +156,26 @@ OBJECTS ------------------------------------------------------------------------
             for (let iterator of array) {       // uses iterators
                 console.log(i);                 // doesn't work on objects
             }
+#####################################################################################################
+BUILT-INS -------------------------------------------------------------------------------------------
+#####################################################################################################
 
-    BUILT-IN OBJECTS ################################################################################
+    GLOBAL FUNCTIONS ################################################################################
+
+        * eval()				// Executes a string as if it was script code
+        * isFinite()				// Determines if a value is a finite, legal number
+        * parseFloat()				// Parses a string and returns a float
+        * parseInt()				// Parses a string and returns an integer
+
+        * setTimeOut(func,x)			// Wait x ms then run func
+        * setInterval(func,x)			// Call func at every x ms
+
+        Popup boxes:
+            * Alert("sometext")
+            * Confirm("sometext"):boolean
+            * Prompt("sometext","defaultvalue"):inputString / null.
+
+    OBJECTS #########################################################################################
     
         Number --------------------------------------------------------------------------------------
 
@@ -224,8 +227,19 @@ OBJECTS ------------------------------------------------------------------------
             !!! To add completely new key-value pair to an existing object, just use it as if it was
             there beforehand ( ex: obj.newKey=newValue )
 
-    BUILT-IN LIBRARIES ##############################################################################
+    LIBRARIES #######################################################################################
 
+        Object --------------------------------------------------------------------------------------
+
+            * Object.keys(obj)                  // returns an array of keys.
+            * Object.values(obj)                // returns an array of values.
+            * Object.entries(obj)               // returns an array of [key, value] pairs.
+            * Object.fromEntries(array)
+
+                
+                let doubleValues = Object.fromEntries(
+                                       Object.entries(values).map(([key, value]) => [key, value * 2])
+                                   ); // convert to array, map, and then fromEntries to give it back
         Math ----------------------------------------------------------------------------------------
 
             * Math.E ,Math.PI
@@ -263,7 +277,7 @@ OBJECTS ------------------------------------------------------------------------
 
             *  Map – is a collection of keyed values.
             *  Methods and properties:
-                * new Map([iterable])           // creates the map, with optional iterable
+                * let map = new Map([iterable]) // creates the map, with optional iterable
                 * map.set(key, value)           // stores the value by the key (chainable)
                 * map.get(key)                  // returns the value by the key or undefined
                 * map.has(key)                  // returns true if the key exists, false otherwise.
@@ -277,7 +291,7 @@ OBJECTS ------------------------------------------------------------------------
 
             * Set – is a collection of unique values.
             * Methods and properties:
-                * new Set([iterable])           // creates the set, with optional iterable
+                * let set = new Set([iterable]) // creates the set, with optional iterable
                 * set.add(value)                // adds a value (does nothing if exists)(chainable)
                 * set.delete(value)             // removes the value, returns true if value existed
                                                 // at the moment of the call, otherwise false.
@@ -290,6 +304,7 @@ OBJECTS ------------------------------------------------------------------------
         !!! WeakMap and WeakSet are used as “secondary” data structures. Once the object is removed
             from the main storage, if it is only found as the key of WeakMap or in a WeakSet, it will
             be cleaned up automatically.
+
 
 #####################################################################################################
 CLASSES ---------------------------------------------------------------------------------------------
