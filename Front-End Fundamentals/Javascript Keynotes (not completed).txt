@@ -179,36 +179,66 @@ OBJECTS ------------------------------------------------------------------------
               {title, width, height} = {title: "Menu", width: 200, height: 100};
               // confuses with code block curly braces 
 
+    Global Object -----------------------------------------------------------------------------------
+
+        window.currentUser = {name: "John"};    // make it global, to let all scripts access it
+        alert(currentUser.name);                // John (somewhere else in code)
+        alert(window.currentUser.name);         // John (if a local currentUser exists. Also safer)
+
 #####################################################################################################
 FUNCTIONS -------------------------------------------------------------------------------------------
 #####################################################################################################
 
-    THE ... OPERATOR ################################################################################
+    Rest Parameters ---------------------------------------------------------------------------------
 
-        Rest Parameters -----------------------------------------------------------------------------
+        function showName(name, surname, ...titles) {
+          alert( name + ' ' + surname );        // Julius Caesar, the rest go into titles array
+          alert( titles[0] );                   // Consul
+          alert( titles[1] );                   // Imperator
+          alert( titles.length );               // 2
+        }
+        showName("Julius", "Caesar", "Consul", "Imperator");
+        !!! Rest parameters must be at the end.
 
-            function showName(name, surname, ...titles) {
-              alert( name + ' ' + surname );    // Julius Caesar, the rest go into titles array
-              alert( titles[0] );               // Consul
-              alert( titles[1] );               // Imperator
-              alert( titles.length );           // 2
-            }
-            showName("Julius", "Caesar", "Consul", "Imperator");
+    Spread Operator ---------------------------------------------------------------------------------
 
-            !!! Rest parameters must be at the end.
+        *  It “expands” any iterable object into the list of arguments.
 
-        Spread Operator -----------------------------------------------------------------------------
+            let arr1 = [1, -2, 3, 4];
+            let arr2 = [8, 3, -8, 1];
+            alert( Math.max(1, ...arr1, 2, ...arr2, 25) ); // 25 
 
-            *  It “expands” any iterable object into the list of arguments.
+            let merge = [...arr1,...arr2];      // can also be used for merging 
+            alert( [...str] );                  // H,e,l,l,o (any iterable is OK)
 
-                let arr1 = [1, -2, 3, 4];
-                let arr2 = [8, 3, -8, 1];
-                alert( Math.max(1, ...arr1, 2, ...arr2, 25) ); // 25 
+        * [...iter] can be used to convert iterables to arrays, but Array.from is more universal
 
-                let merge = [...arr1,...arr2];  // can also be used for merging 
-                alert( [...str] );              // H,e,l,l,o (any iterable is OK)
+    Function Object ---------------------------------------------------------------------------------
+        
+        * Functions can have properties too: 
 
-            * [...iter] can be used to convert iterables to arrays, but Array.from is more universal
+            * name (func name assigned automatically most of the time)
+            * length (the number of arguments, rests are not counted).
+            * custom:
+
+                function sayHi() {alert("Hi");sayHi.counter++;}
+                
+                sayHi.counter = 0; // initial value
+                sayHi(); // Hi
+                sayHi(); // Hi
+                
+                alert( `Called ${sayHi.counter} times` ); // Called 2 times
+            !!! A property assigned to a function does not define a local variable inside it. 
+                In other words, a property and a variable are two unrelated things.
+
+        * NFE (Named Functions Expressions):
+
+            let sayHi = function func(who) {    // Functions can refer themselves even in expression
+              if (who) alert(`Hello, ${who}`);  // form for recursive call as such. sayHi still work
+              else func("Guest");               // too if it dont get assigned to something else.
+            };
+
+            !!! There is no “internal name” feature in Function Declarations, only in expressions.
 
 #####################################################################################################
 BUILT-INS -------------------------------------------------------------------------------------------
