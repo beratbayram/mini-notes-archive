@@ -285,10 +285,13 @@ FUNCTIONS ----------------------------------------------------------------------
 
         * Decorator is a wrapper around a function that alters its behavior. The main job is still 
           carried out by the function.
-        * Call & Apply: (apply is generally faster than call)
+        * Function Binding: (apply is generally faster than call)
 
             func.call(context, arg1,arg2,...);
             func.apply(context, [args]);        //args can only be array-like
+            boundFunc = func.bind(context)      //returns a new func with new context
+
+            !!! Bind doesnt execute func immediately
             
         * Generic Call Forwarding:
             
@@ -299,7 +302,25 @@ FUNCTIONS ----------------------------------------------------------------------
             function hash() {alert([].join.call(arguments));}
         
         * Example: cachingDecorator -> cachingDecorator.js
+
+    Partial Functions -------------------------------------------------------------------------------
+
+        function mul(a, b) {return a * b;}
+        let double = mul.bind(null, 2); // context -> null
+
+        alert( double(3) ); // = mul(2, 3) = 6
+        alert( double(4) ); // = mul(2, 4) = 8
         
+    Arrow Functions ---------------------------------------------------------------------------------
+
+        * Do not have "this"
+        * Do not have "arguments"
+        * Can’t be called with "new"
+        * They also don’t have "super"
+        
+        * They are meant for short pieces of code that do not have their own “context”, but rather 
+          work in the current one.
+          
 #####################################################################################################
 BUILT-INS -------------------------------------------------------------------------------------------
 #####################################################################################################
