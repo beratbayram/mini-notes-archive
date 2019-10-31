@@ -189,6 +189,40 @@ OBJECTS ------------------------------------------------------------------------
 FUNCTIONS -------------------------------------------------------------------------------------------
 #####################################################################################################
 
+    Scheduling --------------------------------------------------------------------------------------
+
+        * let timerId = setTimeout(func, [delay = 0], [arg1], [arg2], ...);
+          clearTimeout(timerId);
+
+        * let timerId = setInterval(func, [delay = 0], [arg1], [arg2], ...)
+          clearInterval(timerId);
+
+        !!! Time goes on while alert/confirm/prompt is shown
+
+        Nested setTimeout:
+
+            let timerId = setInterval(() => alert('tick'), 2000);
+            // these two are equal            
+            let timerId = setTimeout(function tick() {
+              alert('tick');
+              timerId = setTimeout(tick, 2000); // (*)
+            }, 2000);
+
+            * Nested setTimeout allows to set the delay between the executions more precisely than
+              setInterval. For example, we may change the interval under some conditions during the
+              interval.
+
+            !!! The HTML5 standard says: “after five nested timers, the interval is forced to be at
+                least 4 milliseconds.”.
+
+        Zero delay setTimeout:
+
+            * setTimeout(() => alert("World"));
+              alert("Hello"); // first hello than world
+
+        !!! Please note that all scheduling methods do not guarantee the exact delay. For example,
+            the in-browser timer may slow down for a lot of reasons (CPU overload, battery mode etc.)
+
     Rest Parameters ---------------------------------------------------------------------------------
 
         function showName(name, surname, ...titles) {
@@ -240,6 +274,32 @@ FUNCTIONS ----------------------------------------------------------------------
 
             !!! There is no “internal name” feature in Function Declarations, only in expressions.
 
+    new Function ------------------------------------------------------------------------------------
+
+        let sum = new Function('a', 'b', 'return a + b');
+        alert( sum(1, 2) ); // 3
+
+        !!! its [[Environment]] is set to reference the global one, not the current Lexical Env.
+
+    Decorators --------------------------------------------------------------------------------------
+
+        * Decorator is a wrapper around a function that alters its behavior. The main job is still 
+          carried out by the function.
+        * Call & Apply: (apply is generally faster than call)
+
+            func.call(context, arg1,arg2,...);
+            func.apply(context, [args]);        //args can only be array-like
+            
+        * Generic Call Forwarding:
+            
+            let wrapper=function(){ return original.apply(this, arguments);};
+
+        * Hashing: (Func borrowing)
+
+            function hash() {alert([].join.call(arguments));}
+        
+        * Example: cachingDecorator -> cachingDecorator.js
+        
 #####################################################################################################
 BUILT-INS -------------------------------------------------------------------------------------------
 #####################################################################################################
@@ -250,9 +310,6 @@ BUILT-INS ----------------------------------------------------------------------
         * isFinite()				// Determines if a value is a finite, legal number
         * parseFloat()				// Parses a string and returns a float
         * parseInt()				// Parses a string and returns an integer
-
-        * setTimeOut(func,x)			// Wait x ms then run func
-        * setInterval(func,x)			// Call func at every x ms
 
         Popup boxes:
             * Alert("sometext")
