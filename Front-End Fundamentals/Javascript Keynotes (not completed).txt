@@ -110,10 +110,29 @@ OBJECTS ------------------------------------------------------------------------
                 // return this; (implicitly)
             }
 
-    Prototypes --------------------------------------------------------------------------------------
+    Accessor Properties ----------------------------------------------------------------------------
 
-        * Prototypes allows you to add new properties to existing object of that constructor.
-          Person.prototype.nationality = "English";
+        let user = {
+          _name: "John",
+          _surname: "Smith",
+          get fullName() {return `${this._name} ${this._surname}`;},
+          set fullName(value) {[this._name, this._surname] = value.split(" ");}
+        };
+
+        user.fullName = "Alice Cooper";
+        alert(user._name); // Alice
+        alert(user._surname); // Cooper
+
+        * As the result, we have a “virtual” property fullName. It is readable and writable, but in
+          fact does not exist and cant be deleted.
+
+        Accessor Descriptors:
+            * get,set,configurable,enumerable
+            * No value or writable
+
+        * Technically, external code is able to access the name directly by using user._name. But
+          there is a widely known convention that properties starting with an underscore "_" are 
+          internal and should not be touched from outside the object.
 
     Symbols -----------------------------------------------------------------------------------------
         
@@ -184,6 +203,54 @@ OBJECTS ------------------------------------------------------------------------
         window.currentUser = {name: "John"};    // make it global, to let all scripts access it
         alert(currentUser.name);                // John (somewhere else in code)
         alert(window.currentUser.name);         // John (if a local currentUser exists. Also safer)
+
+    Property Descriptors ----------------------------------------------------------------------------
+
+        * writable – if false, it’s read-only.
+        * enumerable – if false, doesnt listed in loops.
+        * configurable – if false, the property cant be deleted and these descp.s cant be modified
+
+        * When we create a property “the usual way”, all of them are true.
+
+            let user = {name: "John"};
+            let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
+        
+            alert( JSON.stringify(descriptor, null, 2 ));
+            /* property descriptor:
+            {
+              "value": "John",
+              "writable": true,
+              "enumerable": true,
+              "configurable": true
+            }*/
+
+        * Object.defineProperty(user, "name", { 
+            value: "John",                      // Omitted values treated as false
+            enumerable: true,
+            configurable: true
+          });
+
+        !!! Errors related to descriptors appear only in strict mode. Normally they are just ignored
+            silently.
+
+        !!! Making a property non-configurable is a one-way road. it cant be changed back.
+            non-configurability imposes several restrictions on defineProperty:
+
+                * Can’t change configurable flag.
+                * Can’t change enumerable flag.
+                * Can’t change writable: false to true (the other way round works).
+                * Can’t change get/set for an accessor property (but can assign them if absent).
+
+                !!! “Non-configurable” doesn’t mean “non-writable”.
+#####################################################################################################
+PROTOTYPES ------------------------------------------------------------------------------------------
+#####################################################################################################
+
+        let animal = {eats: true};
+        let rabbit = {jumps: true};
+        rabbit.__proto__ = animal;
+
+        alert( rabbit.eats ); // From prototype
 
 #####################################################################################################
 FUNCTIONS -------------------------------------------------------------------------------------------
@@ -320,7 +387,7 @@ FUNCTIONS ----------------------------------------------------------------------
         
         * They are meant for short pieces of code that do not have their own “context”, but rather 
           work in the current one.
-          
+
 #####################################################################################################
 BUILT-INS -------------------------------------------------------------------------------------------
 #####################################################################################################
