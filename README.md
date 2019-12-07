@@ -10,14 +10,14 @@ Available notes:
   
   > This folder is also consist of various examples
 
-* Linux System Management 0.5 (in Turkish)
+* Linux System Management 0.5 (in Turkish) *from Mustafa Akgül Özgür Yazılım Winter Camp*
 * Python Keynotes (not completed)
 
 ---
 
 Sources:
 
-* Mustafa Akgül Özgür Yazılım Kampları (<https://kamp.linux.org.tr/>)
+* Mustafa Akgül Özgür Yazılım Camps (<https://kamp.linux.org.tr/>)
 * W3 Schools (<https://www.w3schools.com>)
 * OMDB (<https://www.omdbapi.com/>)
 * Axios (<https://github.com/axios/axios>)
