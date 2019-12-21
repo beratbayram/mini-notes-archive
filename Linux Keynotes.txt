@@ -13,6 +13,8 @@ whereis <cmd>			// The location of the executable and help
 locate <text>			// Fast find
 dmidecode -t <component>	// Info about that component using DMI table
 
+man -k "keyword"                // Search keyword in all man pages
+
 ################################################################################## 
 
 FILE OPERATIONS
