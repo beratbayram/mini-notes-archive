@@ -43,7 +43,8 @@ xkill				// Changes the mouse to a skull which kills any
 top				// Shows active processes
 CTRL-Z + fg + bg + jobs		// Background job management
 service --status-all		// Show all services with their statuses
-force close                     // killal -9 <ID> 	
+force close                     // killal -9 <ID> 
+iftop                           // Internet traffic monitoring
 
 ##################################################################################
 
@@ -53,6 +54,7 @@ dd				// Disk duplication and iso creation
 parted				// Partition manager
 ls -la /dev/disk/by-uuid	// Find UUID of disks
 sudo fdisk -l                   // Informations about the each partition/disk
+tail -f                         // File watching
 
 ################################################################################## 
 
