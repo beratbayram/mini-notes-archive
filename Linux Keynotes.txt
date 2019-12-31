@@ -38,13 +38,13 @@ stat / file			// Details about a file
 
 PROCESS MANAGEMENT
 
-xkill				// Changes the mouse to a skull which kills any
-                                   window it clicks
+xkill				// Changes the mouse to a windows killer skull
 top				// Shows active processes
 CTRL-Z + fg + bg + jobs		// Background job management
 service --status-all		// Show all services with their statuses
 force close                     // killal -9 <ID> 
 iftop                           // Internet traffic monitoring
+nmcli dev wifi                  // Display Wifi connections
 
 ##################################################################################
 
