@@ -42,9 +42,10 @@ xkill				// Changes the mouse to a windows killer skull
 top				// Shows active processes
 CTRL-Z + fg + bg + jobs		// Background job management
 service --status-all		// Show all services with their statuses
-force close                     // killal -9 <ID> 
+killal -9 <ID>                  // force close
 iftop                           // Internet traffic monitoring
-nmcli dev wifi                  // Display Wifi connections
+nmcli dev wifi                  // Displays Wifi connections
+nethogs				// Real time bandwith usage watcher
 
 ##################################################################################
 
