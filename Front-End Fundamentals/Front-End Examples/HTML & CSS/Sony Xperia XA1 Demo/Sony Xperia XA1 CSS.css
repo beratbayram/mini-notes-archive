@@ -1,0 +1,71 @@
+﻿body {
+  background-image: url(https://img-fotki.yandex.ru/get/9895/235654262.80/0_dcf27_a41cece_L);
+}
+h1 {
+  color: darkblue;
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Times New Roman', Times, serif;
+}
+h2 {
+  font-size: 40px;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+pre {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+}
+h6 {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 15px;
+}
+.duvarkagıtı {
+  max-width: 960px;
+  margin: auto;
+  background: whitesmoke;
+  padding: 10px;
+}
+a:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:active {
+  color: darkblue;
+  background-color: transparent;
+  text-decoration: underline;
+}
+img {
+  float: left;
+  margin-right: 10px;
+}
+table.yataysıra{
+  width:960px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: lightgrey;
+  border:0px;
+  border-collapse: collapse
+ }
+table a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+table a:hover {
+    background-color: grey;
+    color: white
+}
