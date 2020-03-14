@@ -6,6 +6,7 @@ Available notes:
 
 * Front-End Fundamentals
   * **Javascript Keynotes**
+  * Axios
   * HTML & CSS Keynotes
   
   > This folder is also consist of various examples
